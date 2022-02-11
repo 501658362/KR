@@ -31,12 +31,6 @@ if (JSON.stringify(process.env).indexOf('GITHUB')>-1) {
   })()
 }
 CookieJDs = [...new Set(CookieJDs.filter(item => !!item))]
-process.env.guaopencard_All='true'
-process.env.JD_TRY=true
-
-cookies='pt_key=AAJhqDoaADARx7QGESYrqMUU7XHRXw0m96X9gN_Hrm4tanRblnxMlCRMEMd5Pgi4TN7GTl2gSGw;pt_pin=gaoyucindy;remark=9;&&pt_key=AAJhqD6wADAjiUIsrrjhiqRCIddBO14N4OJ1Wx74iLVpQVIrqUPZy-jI_o_nBDTMy5T56z0NJIA;pt_pin=35153692-843702;remark=9;&&pt_key=AAJhzUlQADC4LmxLV9PyxdPi87vknawKWsq6xwHdLMRg0CSB3pclZIJlZxD9yKr8pC3ePJRm9fY;pt_pin=jd_cBpkASiSetDT;remark=9;&&pt_key=AAJhzUoQADCWtj7IqoEdNqUAdCK0y8f2W_DMgDD44FEPzULL1lz3mLVziPwckARp2F7pkg2LswY;pt_pin=lm_gaoyucindy;remark=9;&&pt_key=AAJhzUjvADAib5pZxtZMTHSQ0Kj1gZd6k8B001qO9l5cBIL8zFO3sU-c4OthOELBwS1wCj4ueGo;pt_pin=%E7%A6%8F%E5%B7%9E%E4%BB%8A%E5%A8%B1;remark=9;&&pt_key=AAJhO2A7ADD1Mag73ItOIyZk79ylFvOm0OSnJFPirIG-ssbAq3a21c77j6xuPS7hvt7GzVA34ec;pt_pin=jd_48ad411b29d3d;remark=35537;&&pt_key=AAJhP0U4ADD-SRdJ7snEbs3yUAXPkx11Jf_66xcgouglq1FJ1bMYQVUEw1SG0tvTPWKc6P2P6Xc;pt_pin=7050630-776007;'
-CookieJDs=cookies.split('&&')
-
 console.log(`\n====================共${CookieJDs.length}个京东账号Cookie=========\n`);
 console.log(`==================脚本执行- 北京时间(UTC+8)：${new Date(new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000).toLocaleString('zh', {hour12: false}).replace(' 24:',' 00:')}=====================\n`)
 if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
@@ -47,7 +41,7 @@ for (let i = 0; i < CookieJDs.length; i++) {
 }
 
 // 以下为注入互助码环境变量（仅nodejs内起效）的代码
-function SetShareCodesEnv(nameConfig = "", envName = "") {
+function SetShareCodesEnv(nameChinese = "", nameConfig = "", envName = "") {
   let rawCodeConfig = {}
 
   // 读取互助码
@@ -94,14 +88,13 @@ function SetShareCodesEnv(nameConfig = "", envName = "") {
   let shareCodesStr = shareCodes.join('&')
   process.env[envName] = shareCodesStr
 
-  console.info(`【风之凌殇】 友情提示：为避免ck超过45以上时，互助码环境变量过大而导致调用一些系统命令（如date/cat）时报 Argument list too long，改为在nodejs中设置 ${nameConfig} 的 互助码环境变量 ${envName}，共计 ${totalCodeCount} 组互助码，总大小为 ${shareCodesStr.length}`)
+  console.info(`${nameChinese} 的 互助码环境变量 ${envName}，共计 ${totalCodeCount} 组互助码，总大小为 ${shareCodesStr.length} 字节`)
 }
 
 // 若在task_before.sh 中设置了要设置互助码环境变量的活动名称和环境变量名称信息，则在nodejs中处理，供活动使用
+let nameChinese = process.env.ShareCodeConfigChineseName
 let nameConfig = process.env.ShareCodeConfigName
 let envName = process.env.ShareCodeEnvName
-if (nameConfig && envName) {
-  SetShareCodesEnv(nameConfig, envName)
-} else {
-  console.debug(`Faker 友情提示：您的脚本正常运行中`)
+if (nameChinese && nameConfig && envName) {
+  SetShareCodesEnv(nameChinese, nameConfig, envName)
 }
