@@ -1,3 +1,3 @@
-git pull https://github.com/KingRan/JDJB.git main
+git pull https://github.com/KingRan/KR.git main
 
 git push gitee main
