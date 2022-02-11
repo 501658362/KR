@@ -12,11 +12,11 @@
 过10分钟再执行
 
 
-cron:50 0,13 24-31,1-14 1,2 *
+cron:10 8,21 24-31,1-14 1,2 *
 ============Quantumultx===============
 [task_local]
 #1.24~2.14 联合开卡
-50 0,13 24-31,1-14 1,2 * jd_opencardL62.js, tag=1.24~2.14 联合开卡, enabled=true
+10 8,21 24-31,1-14 1,2 * jd_opencardL62.js, tag=1.24~2.14 联合开卡, enabled=true
 
 */
 
@@ -55,7 +55,7 @@ let activityCookie =''
   $.userId = '10299171'
   $.actId = '29c257bced_220124'
   $.MixNicks = ''
-  $.inviteNick = 'k1Nobb+P0er+C2sysxnx/P2KELO9izRVpwCyqu0eqVZ5aW7RHzlMobrzJ/e9r/uf'
+  $.inviteNick = 'dTVeZ3qMLAWcAFdzlKHc/v2KELO9izRVpwCyqu0eqVZ5aW7RHzlMobrzJ/e9r/uf'
   console.log(`活动地址:https://jinggengjcq-isv.isvjcloud.com/fronth5/#/pages/unitedCardNew20220124/unitedCardNew20220124?actId=29c257bced_220124`)
   console.log(`请自行测试有水无水。`)
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -170,10 +170,6 @@ async function run() {
     await takePostRequest('missionInviteList');
     console.log($.MixNick)
     console.log(`当前助力:${$.inviteNick}`)
-    if($.index == 1){
-      $.inviteNick = $.MixNick
-      console.log(`后面的号都会助力:${$.inviteNick}`)
-    }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
   } catch (e) {
     console.log(e)

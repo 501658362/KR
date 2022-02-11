@@ -59,12 +59,11 @@ if ($.isNode()) {
                 }
                 continue
             }
-            authorCodeList = ['1fc26ba85abe4d7fa8024c9917163442','efa6d50b6d32488ba485f07629ff6c99','8a0d5f341e8440e2aa04a1592cd3f1b3']
             $.bean = 0;
             $.ADID = getUUID('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 1);
             $.UUID = getUUID('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
             // $.authorCode = authorCodeList[random(0, authorCodeList.length)]
-            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+            $.authorCode ='184825c23ed84b39a19b7ddf81db54d3'
             $.authorNum = `${random(1000000, 9999999)}`
             $.activityId = '4e3b9b6233104c199c0c44ff6edbc85d'
             $.activityShopId = '1000014803'

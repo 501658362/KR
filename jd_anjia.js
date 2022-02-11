@@ -4,7 +4,7 @@
 ————————————————
 入口：[组队分豆-安佳 (https://lzkjdz-isv.isvjcloud.com/pool/captain/15935?activityId=9222c59c4de14e039d124ba1d88d7004&shareUuid=b8807b8efe3d4a34bb3c74fa7724c993)]
 IOS等用户直接用NobyDa的jd cookie
-cron "1 0,7,12 * * *" script-path=jd_anjia.js,tag=组队分豆-安佳
+cron "1 10,12,20 * * *" script-path=jd_anjia.js,tag=组队分豆-安佳
 */
 const $ = new Env("组队分豆-安佳");
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
@@ -52,7 +52,7 @@ if ($.isNode()) {
             }
             authorCodeList = ['b8807b8efe3d4a34bb3c74fa7724c993','4ef2c1660f304c63a3b0c208de4cf01f','241c6c30ddf44ee4a02c453d5c661261']
             $.bean = 0;
-            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+            $.authorCode = '74d88ef0e7154df4ae5d21dc7b9556bf'
             $.activityId = '9222c59c4de14e039d124ba1d88d7004'
             $.activityShopId = '1000014486'
             $.randomNum = random(1000000, 9999999)

@@ -87,9 +87,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
       }
       //先兑换京豆
       if ($.isNode()) {
-        if (process.env.MARKET_COIN_TO_BEANS) {
-          coinToBeans = process.env.MARKET_COIN_TO_BEANS;
-        }
+        coinToBeans=20
       }
       try {
         if (`${coinToBeans}` !== '0') {

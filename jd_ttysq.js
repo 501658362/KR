@@ -29,6 +29,7 @@ const JD_API_HOST = `https://m.jingxi.com`;
         return;
     }
     //await getToken();
+
     cookiesArr = cookiesArr.map(ck => ck + `joyytoken=50084${joyToken};`)
     $.CryptoJS = $.isNode() ? require('crypto-js') : CryptoJS
     //做任务

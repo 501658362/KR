@@ -1,7 +1,3 @@
-看完请×掉！
+git pull https://github.com/KingRan/JDJB.git main
 
-请不要传播！请不要传播！请不要传播！
-
-
-频道：https://t.me/KingRan521
-
+git push gitee main
