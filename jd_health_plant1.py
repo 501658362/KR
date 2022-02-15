@@ -528,7 +528,6 @@ def charge(charge_targe_id,cookies,sid,account):
 def start():
         global cookie,cookies,charge_targe_id
         print (f"\n【准备开始...】\n")
-        charge_targe_id=''
         nowtime = datetime.datetime.now ().strftime ('%Y-%m-%d %H:%M:%S.%f8')
         if cookie != '':
             account = setName (cookie)
@@ -553,6 +552,7 @@ def start():
                 try:
                     account = setName (cookie)
                     msg ("★★★★★正在账号{}的任务★★★★★".format (account))
+                    charge_targe_id=''
                     access_token = get_ck (cookie, sid_ck,account)
                     cookie = get_Authorization (access_token, account)
                     get_planted_info (cookie,sid,account)
