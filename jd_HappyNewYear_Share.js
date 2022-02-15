@@ -3,8 +3,8 @@
 账号内互助
 每人3次助力机会 助力满需要5次
 
-cron:15 14,22 15 2 *
-15 14,22 15 2 *  https://raw.githubusercontent.com/KingRan/JDJB/main/jd_HappyNewYear_Share.js
+cron:25 15,22 15 2 *
+25 15,22 15 2 *  https://raw.githubusercontent.com/KingRan/JDJB/main/jd_HappyNewYear_Share.js
 
 
 */
