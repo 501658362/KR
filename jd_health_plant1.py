@@ -509,7 +509,7 @@ def charge(charge_targe_id,cookies,sid,account):
         for i in range(10):
             response = requests.post(url=url, verify=False, headers=headers,data=data.encode())  #data中有汉字，需要encode为utf-8
             result = response.json()
-            if "充值次数达到上限" in message:
+            if "充值次数达到上限" in result['message']:
                 msg("账号【{0}】充能次数已达上限10次".format(account))
                 break
             # print(result)
