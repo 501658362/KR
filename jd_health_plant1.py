@@ -7,7 +7,7 @@
 Author: 一风一扬
 功能：健康社区-种植园自动任务
 Date: 2022-1-4
-cron: 23 11,13,21 * * * xF_jd_health_plant.py
+cron: 15 7,15,21 * * * xF_jd_health_plant.py
 new Env('京东健康社区-种植园自动任务');
 
 
@@ -510,9 +510,9 @@ def charge(charge_targe_id,cookies,sid,account):
             response = requests.post(url=url, verify=False, headers=headers,data=data.encode())  #data中有汉字，需要encode为utf-8
             result = response.json()
             # print(result)
-            user_coins = result['user_coins']   #剩余能量
-            coins = result['plant_info']['coins']   #消耗能量
-            msg ("充能成功，消耗【{1}】能量，剩余能量【{2}】".format (coins,user_coins))
+#             user_coins = result['user_coins']   #剩余能量
+#             coins = result['plant_info']['coins']   #消耗能量
+            msg ("充能成功")
             time.sleep(2)
 
     except Exception as e:
