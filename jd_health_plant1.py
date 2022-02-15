@@ -488,6 +488,9 @@ def do_task2(cookies,taskName,taskId,taskToken,sid,account):
 
 #充能
 def charge(charge_targe_id,cookies,sid,account):
+    if len(charge_targe_id)==0:
+        msg("账号【{0}】未种植".format(account))
+        return
     try:
         url = 'https://xinruismzd-isv.isvjcloud.com/api/add_growth_value'
         headers = {
@@ -512,7 +515,7 @@ def charge(charge_targe_id,cookies,sid,account):
             # print(result)
             user_coins = result['user_coins']   #剩余能量
             coins = result['plant_info']['coins']   #消耗能量
-            msg (f'充能成功，消耗【{coins}】能量，剩余能量【{user_coins}】')
+            msg(f'充能成功，消耗【{coins}】能量，剩余能量【{user_coins}】')
             time.sleep(2)
 
     except Exception as e:
