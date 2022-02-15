@@ -7,7 +7,7 @@
 Author: 一风一扬
 功能：健康社区-种植园自动任务
 Date: 2022-1-4
-cron: 15 7,15,21 * * * jd_health_plant1.py
+cron: 15 7,15,21 * * * jd_health_plant.py
 new Env('京东健康社区-种植园自动任务');
 
 
