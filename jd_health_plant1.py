@@ -528,6 +528,7 @@ def charge(charge_targe_id,cookies,sid,account):
 def start():
         global cookie,cookies,charge_targe_id
         print (f"\n【准备开始...】\n")
+        charge_targe_id=''
         nowtime = datetime.datetime.now ().strftime ('%Y-%m-%d %H:%M:%S.%f8')
         if cookie != '':
             account = setName (cookie)
