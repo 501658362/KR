@@ -18,7 +18,7 @@ mitm
 */
 
 //let jd_zdjr_activityId = '2f5959115640434486d84c8bef479350'// 活动ID
- let jd_zdjr_activityId = 'b6a20f5d6ec04492b04916e432359b2f'// 活动ID
+ let jd_zdjr_activityId = '1fa789202e854ca9a3b4f08f9976eb1e'// 活动ID
 let jd_zdjr_activityUrl = "https://lzkjdz-isv.isvjcloud.com"// 活动地址
 
 
