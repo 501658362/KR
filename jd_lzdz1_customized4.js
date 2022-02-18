@@ -1,4 +1,6 @@
-
+/*
+cron "22 1 * * *" jd_lzdz1_customized4.js
+ */
 const $ = new Env("遇见爱  遇见你");
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
