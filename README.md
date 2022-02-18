@@ -1,3 +1,3 @@
-git pull https://github.com/KingRan/KR.git main
+git pull kr main
 
 git push gitee main
