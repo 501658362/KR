@@ -18,7 +18,7 @@ $.completeNum = 0;
 $.getNum = 0;
 $.try = true;
 $.sentNum = 0;
-$.notifyMsg = '入口:京东-我的-更多工具-新品试用-申请成功\n'
+$.notifyMsg = ''
 
 let cookiesArr = [];
 if ($.isNode()) {
@@ -53,11 +53,11 @@ if ($.isNode()) {
                 for (let j = 0; j < list.length; j++) {
                     item = list[j]
                     if (item.leftTime) {
-                        console.log(new Date().getTime() , item.endTime + 60 * 60 * 24 * 1000 * 10)
-                        if (new Date().getTime() < item.endTime + 60 * 60 * 24 * 1000 * 5) {
-                            $.notifyMsg += `【账号】${$.index}.${$.UserName}  可免费领取-${item.trialName}\n`;
+                        if (new Date().getTime() < item.endTime + 60 * 60 * 24 * 1000 * 2) {
+                            let title=item.trialName.length>15?item.trialName.substr(0,30)+'...':item.trialName
+                            $.notifyMsg += `【账号】${$.index}.${$.UserName}  可免费领取-${title}\n入口:京东-我的-更多工具-新品试用\n`;
                         } else {
-                            console.log("开始两天后不再推")
+                            console.log("开始领取两天后不再推")
                         }
                     }
                 }
