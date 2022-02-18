@@ -1,11 +1,9 @@
 /*
-cron "4 1-22/8 * * *" jd_try.js, tag:京东试用
-
+cron "22 15 * * *" jd_try_notify.js
  */
 const $ = new Env('京东试用待领取通知')
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
-const URL = 'https://api.m.jd.com/client.action'
 let trialActivityIdList = []
 let trialActivityTitleList = []
 let notifyMsg = ''
