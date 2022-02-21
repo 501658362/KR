@@ -132,7 +132,7 @@ if ($.isNode()) {
                 await getjdfruit();
                 await cash();
                 await requestAlgo();
-                await JxmcGetRequest();
+                // await JxmcGetRequest();
                 await bean();
                 await getJxFactory(); //京喜工厂
                 //await getDdFactoryInfo(); // 京东工厂
@@ -292,14 +292,14 @@ async function showMsg() {
     ReturnMessage += `\n`;
     ReturnMessage += `【当前京豆】${$.beanCount}豆(≈${($.beanCount / 100).toFixed(2)}元)\n`;
 
-    if (typeof $.JDEggcnt !== "undefined") {
-        if ($.JDEggcnt == 0) {
-            ReturnMessage += `【京喜牧场】请完成新手任务,京喜->我的->京喜牧场\n`;
-        } else {
-            ReturnMessage += `【京喜牧场】${$.JDEggcnt}枚鸡蛋\n`;
-        }
+    // if (typeof $.JDEggcnt !== "undefined") {
+    //     if ($.JDEggcnt == 0) {
+    //         ReturnMessage += `【京喜牧场】请完成新手任务,京喜->我的->京喜牧场\n`;
+    //     } else {
+    //         ReturnMessage += `【京喜牧场】${$.JDEggcnt}枚鸡蛋\n`;
+    //     }
+    // }
 
-    }
     if (typeof $.JDtotalcash !== "undefined") {
         ReturnMessage += `【极速金币】${$.JDtotalcash}币(≈${($.JDtotalcash / 10000).toFixed(2)}元)\n`;
     }
