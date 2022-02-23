@@ -12,11 +12,11 @@
 过10分钟再执行
 
 
-cron:51 0,19 23-28 2 *
+cron:51 10,19 23-28 2 *
 ============Quantumultx===============
 [task_local]
 #2.23~2.28 联合开卡
-51 0,19 23-28 2 * jd_opencardL81.js, tag=2.23~2.28 联合开卡, enabled=true
+51 10,19 23-28 2 * jd_opencardL81.js, tag=2.23~2.28 联合开卡, enabled=true
 
 */
 
@@ -55,7 +55,7 @@ let activityCookie =''
   $.userId = '10299171'
   $.actId = 'b2135158a2c84d309ccc2a_220223'
   $.MixNicks = ''
-  $.inviteNick = 'k1Nobb+P0er+C2sysxnx/P2KELO9izRVpwCyqu0eqVZ5aW7RHzlMobrzJ/e9r/uf'
+  $.inviteNick = 'dTVeZ3qMLAWcAFdzlKHc/v2KELO9izRVpwCyqu0eqVZ5aW7RHzlMobrzJ/e9r/uf'
   console.log(`活动地址:`)
   console.log(`请自行测试有水无水。`)
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -170,10 +170,7 @@ async function run() {
     await takePostRequest('missionInviteList');
     console.log($.MixNick)
     console.log(`当前助力:${$.inviteNick}`)
-    if($.index == 1){
-      $.inviteNick = $.MixNick
-      console.log(`后面的号都会助力:${$.inviteNick}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
   } catch (e) {
     console.log(e)
