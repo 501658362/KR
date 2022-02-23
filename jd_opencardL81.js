@@ -12,11 +12,11 @@
 过10分钟再执行
 
 
-cron:51 10,19 23-28 2 *
+cron:51 0,19 23-28 2 *
 ============Quantumultx===============
 [task_local]
 #2.23~2.28 联合开卡
-51 10,19 23-28 2 * jd_opencardL81.js, tag=2.23~2.28 联合开卡, enabled=true
+51 0,19 23-28 2 * jd_opencardL81.js, tag=2.23~2.28 联合开卡, enabled=true
 
 */
 
@@ -56,7 +56,7 @@ let activityCookie =''
   $.actId = 'b2135158a2c84d309ccc2a_220223'
   $.MixNicks = ''
   $.inviteNick = 'dTVeZ3qMLAWcAFdzlKHc/v2KELO9izRVpwCyqu0eqVZ5aW7RHzlMobrzJ/e9r/uf'
-  console.log(`活动地址:`)
+  console.log(`活动地址:https://jinggengjcq-isv.isvjcloud.com/fronth5/#/pages/unitedCardNew20220223/unitedCardNew20220223?actId=b2135158a2c84d309ccc2a_220223`)
   console.log(`请自行测试有水无水。`)
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
