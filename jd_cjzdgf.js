@@ -8,11 +8,11 @@ cron:10 10 10 10 *
 ============Quantumultx===============
 [task_local]
 #CJ组队瓜分京豆
-10 1,12,17,22 * * * jd_cjzdgf1.js, tag=CJ组队瓜分京豆, enabled=true
+10 * * * * jd_cjzdgf.js, tag=CJ组队瓜分京豆, enabled=true
 
 */
 
-let jd_cjhy_activityId="ef2d3a9f9f4d4f44a43540c72e9e344c" // 活动ID
+let jd_cjhy_activityId="c53550b441a04d96be1a969e5d38dbe9" // 活动ID
 let jd_cjhy_activityUrl="https://cjhydz-isv.isvjcloud.com" // 活动地址
 
 const $ = new Env('CJ组队瓜分京豆');
