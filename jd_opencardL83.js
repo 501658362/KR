@@ -11,11 +11,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:25 11,23 27-28,1-4 2,3 *
+cron:25 11,23 20-28,1-4 2,3 *
 ============Quantumultx===============
 [task_local]
 #2.24~3.4 常青藤联合开卡
-25 11,23 27-28,1-4 2,3 * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_opencardL83.js, tag=2.24~3.4 常青藤联合开卡, enabled=true
+25 11,23 20-28,1-4 2,3 * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_opencardL83.js, tag=2.24~3.4 常青藤联合开卡, enabled=true
 
 */
 const $ = new Env('2.24~3.4 常青藤联合开卡');
