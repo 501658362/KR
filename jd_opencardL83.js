@@ -11,11 +11,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:25 1,13 27-28,1-4 2,3 *
+cron:25 11,23 27-28,1-4 2,3 *
 ============Quantumultx===============
 [task_local]
 #2.24~3.4 常青藤联合开卡
-25 1,13 27-28,1-4 2,3 * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_opencardL83.js, tag=2.24~3.4 常青藤联合开卡, enabled=true
+25 11,23 27-28,1-4 2,3 * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_opencardL83.js, tag=2.24~3.4 常青藤联合开卡, enabled=true
 
 */
 const $ = new Env('2.24~3.4 常青藤联合开卡');
@@ -49,7 +49,7 @@ let activityCookie =''
     return;
   }
   $.activityId = "dzb1830e004adfb1f0b05a83bf6ac7"
-  $.shareUuid = "0ca1c88a3437428c9f0c2376af590c7f"
+  $.shareUuid = "da0074c0352d43bdb5c4aea039111826"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
@@ -204,10 +204,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
     
