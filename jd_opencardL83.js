@@ -49,7 +49,8 @@ let activityCookie =''
     return;
   }
   $.activityId = "dzb1830e004adfb1f0b05a83bf6ac7"
-  $.shareUuid = "da0074c0352d43bdb5c4aea039111826"
+  authorCodeList=['ec19d78d59fb4dc2ab36aca9ab16a61d','da0074c0352d43bdb5c4aea039111826']
+  $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
