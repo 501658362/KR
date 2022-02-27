@@ -157,7 +157,12 @@ async function run() {
       await takePostRequest('startDraw');
       await $.wait(parseInt(Math.random() * 1000 + 3000, 10))
     }
-    
+    $.log("关注: " + $.followShop)
+    if(!$.followShop && !$.outFlag){
+      flag = true
+      await takePostRequest('followShop');
+      await $.wait(parseInt(Math.random() * 2000 + 3000, 10))
+    }
     $.log("加购: " + $.addSku)
     
     if(!$.addSku && !$.outFlag){
