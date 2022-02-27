@@ -49,11 +49,11 @@ let activityCookie =''
     return;
   }
   $.activityId = "dzb1830e004adfb1f0b05a83bf6ac7"
-  authorCodeList=['ec19d78d59fb4dc2ab36aca9ab16a61d','da0074c0352d43bdb5c4aea039111826']
-  $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
+  authorCodeList=['ec19d78d59fb4dc2ab36aca9ab16a61d','da0074c0352d43bdb5c4aea039111826','ab2885e0d1fa4288888877ca884f6d38','412d28f9264e4103996892bc9e924f86']
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
       $.index = i + 1;
