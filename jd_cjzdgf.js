@@ -91,6 +91,7 @@ if (isGetCookie) {
                 }
                 if ($[_0xa087('34')]) {
                     console.log('重新一轮！！！！！！！！！！！！！！！！！！！！！！！！')
+                    $.maxTeam=false
                     $.retry=true
                     cookiesArr.splice(0, 1)
                     await $.wait(1000)
