@@ -14,11 +14,10 @@ mitm
 *-isv.isvjcloud.com
 [task_local]
 组队瓜分京豆
-10 11,22 * * * jd_zdjr.js, tag=组队瓜分京豆, enabled=true
+10 * * * * jd_zdjr1.js, tag=组队瓜分京豆, enabled=true
 */
 
-//let jd_zdjr_activityId = '2f5959115640434486d84c8bef479350'// 活动ID
- let jd_zdjr_activityId = '1fa789202e854ca9a3b4f08f9976eb1e'// 活动ID
+ let jd_zdjr_activityId = '25b68aca6ad94643ad1a81f8f577d173'// 活动ID
 let jd_zdjr_activityUrl = "https://lzkjdz-isv.isvjcloud.com"// 活动地址
 
 
