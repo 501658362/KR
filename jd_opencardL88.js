@@ -6,11 +6,11 @@
 入口：[ 3.1-3.8 约惠女神节，惊喜享不停 ]
 
 
-cron:31 4,13 1-8 3 *
+cron:31 0,12 1-8 3 *
 ============Quantumultx===============
 [task_local]
 #3.1-3.8 约惠女神节，惊喜享不停
-31 4,13 1-8 3 * jd_opencardL88.js, tag=3.1-3.8 约惠女神节，惊喜享不停, enabled=true
+31 0,12 1-8 3 * jd_opencardL88.js, tag=3.1-3.8 约惠女神节，惊喜享不停, enabled=true
 
 */
 const $ = new Env('3.1-3.8 约惠女神节，惊喜享不停');
@@ -41,7 +41,7 @@ let activityCookie =''
     return;
   }
   $.activityId = "unionkbblnt20220301dzlhkk"
-  $.shareUuid = "07d40ac6786b4d1985bf7155e4a9cde7"
+  $.shareUuid = "c0f926b03b1849a9aed564a1183e67f1"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
@@ -184,10 +184,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
   } catch (e) {
     console.log(e)
