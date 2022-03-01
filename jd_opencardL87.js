@@ -12,11 +12,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:30 1,14 1-8 3 *
+cron:30 12,22 1-15 3 *
 ============Quantumultx===============
 [task_local]
 #3.1-3.8 京东粉丝联盟福利社 入会赢专享好礼
-30 1,14 1-8 3 * jd_opencardL87.js, tag=3.1-3.8 京东粉丝联盟福利社 入会赢专享好礼, enabled=true
+30 12,22 1-15 3 * jd_opencardL87.js, tag=3.1-3.8 京东粉丝联盟福利社 入会赢专享好礼, enabled=true
 
 */
 const $ = new Env('3.1-3.8 京东粉丝联盟福利社 入会赢专享好礼');
@@ -49,7 +49,7 @@ let activityCookie =''
     return;
   }
   $.activityId = "dz220221100001616201shop"
-  $.shareUuid = "9b9f0f8c5b474d06a915bec303a4495e"
+  $.shareUuid = "0497ed9985cf4ed783cc9af3342e7b3b"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/shop/league/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
 
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -174,10 +174,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+  
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
       if($.index % 3 == 0) console.log('休息1分钟，别被黑ip了\n可持续发展')
