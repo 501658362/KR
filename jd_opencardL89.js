@@ -1,20 +1,20 @@
 /*
-3.1-3.15 集卡王冠下的少女心
+3.1-3.15 集卡女王驾到
 新增开卡脚本,一次性脚本
 
 ————————————————
-入口：[ 3.1-3.15 集卡王冠下的少女心]
+入口：[ 3.1-3.15 集卡女王驾到]
 
 
-cron:30 12,22 1-15 3 *
+cron:30 7,16 1-15 3 *
 ============Quantumultx===============
 [task_local]
-#3.1-3.15 集卡王冠下的少女心
-30 12,22 1-15 3 * jd_opencardL86.js, tag=3.1-3.15 集卡王冠下的少女心, enabled=true
+#3.1-3.15 集卡女王驾到
+30 7,16 1-15 3 * jd_opencardL89.js, tag=3.1-3.15 集卡女王驾到, enabled=true
 
 */
 
-const $ = new Env('3.1-3.15 集卡王冠下的少女心');
+const $ = new Env('3.1-3.15 集卡女王驾到');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 //IOS等用户直接用NobyDa的jd cookie
@@ -44,8 +44,8 @@ let activityCookie =''
     });
     return;
   }
-  $.activityId = "uniongame20220301ul6ar3g76a"
-  $.shareUuid = "b27acb08d1fa444c9d3a0ff7a7b5fc8c"
+  $.activityId = "uniongame2022030101goddess"
+  $.shareUuid = "0f183d4589b441b88a4ca481d6c8b88d"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
 
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -132,6 +132,7 @@ async function run() {
         if(o.status == 0){
           flag = true
           $.joinVenderId = o.venderId
+          await $.wait(parseInt(Math.random() * 3000 + 2000, 10))
           await joinShop()
 		  if($.joinShopresmessage === '活动太火爆，请稍后再试'){
 			  console.log('重新开卡')
@@ -200,12 +201,15 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-
+    if($.index == 1){
+      $.shareUuid = $.actorUuid
+      console.log(`后面的号都会助力:${$.shareUuid}`)
+    }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
     
-    if($.index % 5 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
-    if($.index % 5 == 0) await $.wait(parseInt(Math.random() * 5000 + 10000, 10))
+    if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
+    if($.index % 3 == 0) await $.wait(parseInt(Math.random() * 5000 + 10000, 10))
     
   } catch (e) {
     console.log(e)
