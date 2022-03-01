@@ -41,15 +41,13 @@ let activityCookie =''
     return;
   }
   $.activityId = "unionkbblnt20220222dzlhkk"
-  authorCodeList = await getAuthorCodeList('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/opencard90.json')
-    if(authorCodeList === '404: Not Found'){
-        authorCodeList = [
-            '3174e68bf8a14620982b70193cce7e9c',
-        ]
-    }
-  $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
+  authorCodeList = [
+    '00582ad612a54c6c8d043ebb06ad39e0',
+    '561e723b941d495d822c0f8d37859483',
+  ]
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
+  $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -194,10 +192,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
       if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
