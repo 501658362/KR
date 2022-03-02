@@ -48,7 +48,7 @@ $.appId = "e395f"
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
-  cookiesArr=process.env.cookies.split('&&').concat(cookiesArr)
+  // cookiesArr=process.env.cookies.split('&&').concat(cookiesArr)
   let res = null
   if (res && res.activeId) $.activeId = res.activeId;
   $.authorMyShareIds = [...((res && res.codes) || [])];
@@ -139,9 +139,12 @@ $.appId = "e395f"
       $.done();
     })
 async function main() {
+  $.openFail=false
   await joinActive();
   await $.wait(2000);
+  if (!$.openFail){
   await getUserInfo();
+  }
 }
 //参与活动
 function joinActive() {
@@ -156,6 +159,9 @@ function joinActive() {
           if (data.iRet === 0) {
             console.log(`活动开启成功\n`);
           } else {
+            if (data.iRet === 2016){
+                $.openFail=true
+            }
             console.log(`活动开启失败：${data.sErrMsg}\n`);
           }
         }
