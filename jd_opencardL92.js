@@ -8,11 +8,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:30 1 19,4-18 3 *
+cron:30 12 3-18 3 *
 ============Quantumultx===============
 [task_local]
 #3.3~3.18 约惠女王节 嗨购不停
-30 1 19,4-18/3 3 * jd_opencardL92.js, tag=3.3~3.18 约惠女王节 嗨购不停, enabled=true
+30 12 3-18 3 * jd_opencardL92.js, tag=3.3~3.18 约惠女王节 嗨购不停, enabled=true
 
 */
 
@@ -47,9 +47,14 @@ let nowTime = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*
     return;
   }
   $.activityId = "uniongame20220303molpd624p"
-  $.shareUuid = "3b788d340bdd45e995df67f78343f747"
+  authorCodeList = [
+    '7dcf9af13ba2474c8db419be14e49129',
+    '998916a93bce417688d34102c293c3c7',
+    '8d7befb311ea417a93dd58d83058275b',
+  ]
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -214,10 +219,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
       if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
