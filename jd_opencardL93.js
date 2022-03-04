@@ -6,11 +6,11 @@
 入口：[ 3.4-3.10 大牌联合，女神节宠你 ]
 
 
-cron:31 15,21 5-10 3 *
+cron:31 11,21 5-10 3 *
 ============Quantumultx===============
 [task_local]
 #3.4-3.10 大牌联合，女神节宠你
-cron:31 15,21 5-10 3 * jd_opencardL93.js, tag=3.4-3.10 大牌联合，女神节宠你, enabled=true
+cron:31 11,21 5-10 3 * jd_opencardL93.js, tag=3.4-3.10 大牌联合，女神节宠你, enabled=true
 
 */
 const $ = new Env('3.4-3.10 大牌联合，女神节宠你');
