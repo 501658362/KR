@@ -6,11 +6,11 @@
 入口：[ 3.4-3.10 大牌联合，女神节宠你 ]
 
 
-cron:31 11,21 5-10 3 *
+cron:31 15,21 5-10 3 *
 ============Quantumultx===============
 [task_local]
 #3.4-3.10 大牌联合，女神节宠你
-cron:31 11,21 5-10 3 * jd_opencardL93.js, tag=3.4-3.10 大牌联合，女神节宠你, enabled=true
+cron:31 15,21 5-10 3 * jd_opencardL93.js, tag=3.4-3.10 大牌联合，女神节宠你, enabled=true
 
 */
 const $ = new Env('3.4-3.10 大牌联合，女神节宠你');
@@ -42,8 +42,14 @@ let activityCookie =''
   }
   $.activityId = "unionkbblnt20220304dzlhkk"
   $.shareUuid = "4c61af64376442768da3aa478ca9ab3f"
+  authorCodeList = [
+    'd4f650f27855492c864ca689e9138b28',
+    '6b97a122ad8a445e9943f1348ba28a91',
+    '7741ba7443fa46da9f903e3d0570feaa',
+  ]
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -190,10 +196,6 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
       if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
