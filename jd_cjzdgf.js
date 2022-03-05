@@ -12,7 +12,7 @@ cron:10 10 10 10 *
 
 */
 
-let jd_cjhy_activityId = "ce710017425840758d4604a2b7a66b28" // 活动ID
+let jd_cjhy_activityId = "360a0315b68641228079a7be0a976422" // 活动ID
 let jd_cjhy_activityUrl = "https://cjhydz-isv.isvjcloud.com" // 活动地址
 
 const $ = new Env('CJ组队瓜分京豆');
