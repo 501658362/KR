@@ -1,7 +1,7 @@
 /*
 [task_local]
 #2.25-3.8个护女神价到抽奖机活动
-10 9 * * * jd_bzlshdgt.js, tag=2.25-3.8个护女神价到抽奖机活动, enabled=true
+10 16 * * * jd_bzlshdgt.js, tag=2.25-3.8个护女神价到抽奖机活动, enabled=true
  */
 const $ = new Env('2.25-3.8个护女神价到抽奖机活动');
 const notify = $.isNode() ? require('./sendNotify') : '';
