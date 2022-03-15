@@ -16,11 +16,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:30 2 16-31 3 *
+cron:10 11 15-31 3 *
 ============Quantumultx===============
 [task_local]
 #海蓝之谜邀请入会有礼
-30 2 16-31 3 * jd_opencard96.js, tag=海蓝之谜邀请入会有礼, enabled=true
+10 11 15-31 3 * jd_opencard96.js, tag=海蓝之谜邀请入会有礼, enabled=true
 
 */
 
@@ -54,16 +54,17 @@ let activityCookie =''
     return;
   }
   $.activityId = "2203100041074702"
-  authorCodeList = await getAuthorCodeList('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/opencard96.json')
-    if(authorCodeList === '404: Not Found'){
+
         authorCodeList = [
-            '76f9a4f1df2e42fd98c05997c0c9bc7d',
+            '7c60b67d3c72404e8796e4dcaacf8c70',
+            'f82c3ca1aaf94a8d8450518da5fbb528',
+            'a4d66a65d94b44128e354fa2ce90e8e1',
         ]
-    }
-  $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
+
   console.log(`入口:\nhttps://lzkjdz-isv.isvjcloud.com/m/1000410747/99/${$.activityId}/?helpUuid=${$.shareUuid}`)
 
   for (let i = 0; i < cookiesArr.length; i++) {
+  $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
