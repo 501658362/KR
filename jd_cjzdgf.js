@@ -12,7 +12,7 @@
 //
 // */
 //
-// let jd_cjhy_activityId = "778a93d2159747e68ab8b3cfee18b32e" // 活动ID
+// let jd_cjhy_activityId = "2f82bd4ce464456294b6c2c754e02dc7" // 活动ID
 // let jd_cjhy_activityUrl = "https://cjhydz-isv.isvjcloud.com" // 活动地址
 //
 // const $ = new Env('CJ组队瓜分京豆');
