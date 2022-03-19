@@ -1,7 +1,7 @@
 /*
 [task_local]
 #3.18-3.31小天才联合活动抽奖机
-50 7 * * * jd_xtc.js, tag=3.18-3.31小天才联合活动抽奖机, enabled=true
+13 12 * * * jd_xtc.js, tag=3.18-3.31小天才联合活动抽奖机, enabled=true
  */
 const $ = new Env('3.18-3.31小天才联合活动抽奖机');
 const notify = $.isNode() ? require('./sendNotify') : '';
