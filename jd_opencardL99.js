@@ -13,11 +13,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:55 3,16 21-27 3 *
+cron:11 14 21-27 3 *
 ============Quantumultx===============
 [task_local]
 #3.21-3.27 春日风尚 入会焕新
-55 3,16 21-27 3 * jd_opencardL99.js, tag=3.21-3.27 春日风尚 入会焕新, enabled=true
+11 14 21-27 3 * jd_opencardL99.js, tag=3.21-3.27 春日风尚 入会焕新, enabled=true
 
 */
 const $ = new Env("3.21-3.27 春日风尚 入会焕新");
@@ -47,7 +47,9 @@ if ($.isNode()) {
         return;
     }
     authorCodeList = [
-        'ee9c70d1abca4b1ab21ec1ed0a51dcb9',
+        'd47f09bc7bd042129d4f70d0d15f63f6',
+        '6abd70832c2f49a08294fc87d4bfa45b',
+        'f4f3d002199347929e7c7689f2fc7895',
     ]
     for (let i = 0; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
@@ -70,7 +72,7 @@ if ($.isNode()) {
             $.bean = 0;
             $.ADID = getUUID("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 1);
             $.UUID = getUUID("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+            $.authorCode =  authorCodeList[random(0, authorCodeList.length)]
             $.authorNum = `${random(1000000, 9999999)}`;
             $.randomCode = random(1000000, 9999999);
             $.activityId = "dz1a8e2d544da69c0cfc0ef18187ba";
@@ -189,10 +191,7 @@ function task(function_id, body, isCommon = 0, own = 0) {
                                     if (!data.data.hasEnd) {
                                         $.log(`开启【${data.data.activityName}】活动`);
                                         $.log("-------------------");
-                                        if ($.index === 1) {
-                                            ownCode = data.data.actorUuid;
-                                            console.log(ownCode);
-                                        }
+                                            console.log( data.data.actorUuid);
                                         $.actorUuid = data.data.actorUuid;
                                     } else {
                                         $.log("活动已经结束");

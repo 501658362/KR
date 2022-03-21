@@ -12,11 +12,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:55 1,14 21-31 3 *
+cron:19 14 21-31 3 *
 ============Quantumultx===============
 [task_local]
 #3.21-3.31 精致宅家 春尚焕新
-55 1,14 21-31 3 * jd_opencardL98.js, tag=3.21-3.31 精致宅家 春尚焕新, enabled=true
+19 14 21-31 3 * jd_opencardL98.js, tag=3.21-3.31 精致宅家 春尚焕新, enabled=true
 
 */
 const $ = new Env("3.21-3.31 精致宅家 春尚焕新");
@@ -45,12 +45,11 @@ if ($.isNode()) {
     $.msg($.name, "【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取", "https://bean.m.jd.com/bean/signIndex.action", { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
     return;
   }
-  authorCodeList = await getAuthorCodeList('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/opencard98.json')
-  if ($.getAuthorCodeListerr === false) {
-      authorCodeList = [
-          'aab6c17e828841a2b9b83c3866ea56ec',
-      ]
-  }
+  authorCodeList = [
+    'ae4001f6481b49aaa3802a6664cdd653',
+    '051dbfb7ee884031844fb800651a4269',
+    '27c7f30b74824e61926846de5c9204b8',
+  ]
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
@@ -72,7 +71,7 @@ if ($.isNode()) {
       $.bean = 0;
       $.ADID = getUUID("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 1);
       $.UUID = getUUID("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-      $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+      $.authorCode =  authorCodeList[random(0, authorCodeList.length)]
       $.authorNum = `${random(1000000, 9999999)}`;
       $.randomCode = random(1000000, 9999999);
       $.activityId = "dz6054741f4dfaa17788a046da6c1c";
@@ -93,12 +92,12 @@ if ($.isNode()) {
     }
   }
 })()
-  .catch((e) => {
-    $.log("", `❌ ${$.name}, 失败! 原因: ${e}!`, "");
-  })
-  .finally(() => {
-    $.done();
-  });
+    .catch((e) => {
+      $.log("", `❌ ${$.name}, 失败! 原因: ${e}!`, "");
+    })
+    .finally(() => {
+      $.done();
+    });
 
 async function member() {
   $.token = null;
@@ -191,10 +190,7 @@ function task(function_id, body, isCommon = 0, own = 0) {
                   if (!data.data.hasEnd) {
                     $.log(`开启【${data.data.activityName}】活动`);
                     $.log("-------------------");
-                    if ($.index === 1) {
-                      ownCode = data.data.actorUuid;
-                      console.log(ownCode);
-                    }
+                    console.log(ownCode);
                     $.actorUuid = data.data.actorUuid;
                   } else {
                     $.log("活动已经结束");
@@ -406,48 +402,48 @@ function getMyPing() {
 function getFirstLZCK() {
   return new Promise((resolve) => {
     $.get(
-      {
-        url: $.activityUrl,
-        headers: {
-          "user-agent": $.isNode() ? process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : require("./USER_AGENTS").USER_AGENT : $.getdata("JDUA") ? $.getdata("JDUA") : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+        {
+          url: $.activityUrl,
+          headers: {
+            "user-agent": $.isNode() ? process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : require("./USER_AGENTS").USER_AGENT : $.getdata("JDUA") ? $.getdata("JDUA") : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
+          },
         },
-      },
-      (err, resp, data) => {
-        try {
-          if (err) {
-            console.log(err);
-          } else {
-            if (resp["headers"]["set-cookie"]) {
-              cookie = `${originCookie}`;
-              if ($.isNode()) {
-                for (let sk of resp["headers"]["set-cookie"]) {
-                  cookie = `${cookie}${sk.split(";")[0]};`;
+        (err, resp, data) => {
+          try {
+            if (err) {
+              console.log(err);
+            } else {
+              if (resp["headers"]["set-cookie"]) {
+                cookie = `${originCookie}`;
+                if ($.isNode()) {
+                  for (let sk of resp["headers"]["set-cookie"]) {
+                    cookie = `${cookie}${sk.split(";")[0]};`;
+                  }
+                } else {
+                  for (let ck of resp["headers"]["Set-Cookie"].split(",")) {
+                    cookie = `${cookie}${ck.split(";")[0]};`;
+                  }
                 }
-              } else {
-                for (let ck of resp["headers"]["Set-Cookie"].split(",")) {
-                  cookie = `${cookie}${ck.split(";")[0]};`;
+              }
+              if (resp["headers"]["Set-Cookie"]) {
+                cookie = `${originCookie}`;
+                if ($.isNode()) {
+                  for (let sk of resp["headers"]["set-cookie"]) {
+                    cookie = `${cookie}${sk.split(";")[0]};`;
+                  }
+                } else {
+                  for (let ck of resp["headers"]["Set-Cookie"].split(",")) {
+                    cookie = `${cookie}${ck.split(";")[0]};`;
+                  }
                 }
               }
             }
-            if (resp["headers"]["Set-Cookie"]) {
-              cookie = `${originCookie}`;
-              if ($.isNode()) {
-                for (let sk of resp["headers"]["set-cookie"]) {
-                  cookie = `${cookie}${sk.split(";")[0]};`;
-                }
-              } else {
-                for (let ck of resp["headers"]["Set-Cookie"].split(",")) {
-                  cookie = `${cookie}${ck.split(";")[0]};`;
-                }
-              }
-            }
+          } catch (error) {
+            console.log(error);
+          } finally {
+            resolve();
           }
-        } catch (error) {
-          console.log(error);
-        } finally {
-          resolve();
         }
-      }
     );
   });
 }
@@ -495,7 +491,7 @@ function random(min, max) {
 function getUUID(format = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", UpperCase = 0) {
   return format.replace(/[xy]/g, function (c) {
     var r = (Math.random() * 16) | 0,
-      v = c == "x" ? r : (r & 0x3) | 0x8;
+        v = c == "x" ? r : (r & 0x3) | 0x8;
     if (UpperCase) {
       uuid = v.toString(36).toUpperCase();
     } else {
