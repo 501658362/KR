@@ -73,6 +73,12 @@ let min: number[] = [0.02, 0.12, 0.3, 0.6, 0.7, 0.8, 1, 2], log: string = '', lo
           await wait(1000)
         } else {
           console.log(`Code ${code} 已被助满`)
+          for (let z = 0; z < shareCodesSelf.length; z++) {
+            if(shareCodesSelf[z]===code){
+              shareCodesSelf.splice(z, 1)
+              break
+            }
+          }
         }
       }
     } catch (e) {
