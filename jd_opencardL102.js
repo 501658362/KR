@@ -45,12 +45,11 @@ if ($.isNode()) {
         $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
         return;
     }
-    authorCodeList = await getAuthorCodeList('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/opencard102.json')
-    if($.getAuthorCodeListerr === false){
         authorCodeList = [
-            '54632294d40348f7af8651a30dbfc8e3',
+            'cb0bcb7a78ca40a1aa7e96b900c1e4c8',
+            'd0d49b27e61c4d35918211b699337350',
+            '5bf3ece6f53e47e49a2b84d92cc8f9d9',
         ]
-    }
     console.log(authorCodeList)
     for (let i = 0; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
@@ -77,7 +76,7 @@ if ($.isNode()) {
             //     '14fc2098a354410fa6d06f853a0c4d59',
             // ]
             // $.authorCode = authorCodeList[random(0, authorCodeList.length)]
-            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+            $.authorCode =   authorCodeList[random(0, authorCodeList.length)]
             $.authorNum = `${random(1000000, 9999999)}`
             $.randomCode = random(1000000, 9999999)
             $.activityId = 'dz5ba3b5b44e35b7d350806a736090'
@@ -193,10 +192,7 @@ function task(function_id, body, isCommon = 0, own = 0) {
                                     if (!data.data.hasEnd) {
                                         $.log(`开启【${data.data.activityName}】活动`)
                                         $.log("-------------------")
-                                        if ($.index === 1) {
-                                            ownCode = data.data.actorUuid
-                                            console.log(ownCode)
-                                        }
+                                            console.log(data.data.actorUuid)
                                         $.actorUuid = data.data.actorUuid;
                                     } else {
                                         $.log("活动已经结束");
