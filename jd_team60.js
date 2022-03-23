@@ -1,3 +1,7 @@
+/*
+10 * * * * jd_team60.js
+*/
+
 /**
  * 微定制瓜分京豆
  * @author gua的代码修改而来.
@@ -22,10 +26,8 @@ function openCardActivity(activityId, activityUrl, pin, num, againUserIndex) {
       messageTitle = "",
       activityCookie = "";
 
-    if (process.env.jd_wdz_activityId)
-      activityId = process.env.jd_wdz_activityId;
-    if (process.env.jd_wdz_activityUrl)
-      activityUrl = process.env.jd_wdz_activityUrl;
+      activityId = "5560c1e3affc4a9eb65d1d3d3b5bf0bf";
+      activityUrl ="https://cjhydz-isv.isvjcloud.com";
     Object.keys(jdCookieNode).forEach((item) =>
       cookiesArr.push(jdCookieNode[item])
     );
