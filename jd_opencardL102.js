@@ -196,6 +196,7 @@ async function run() {
         await takePostRequest('addCart');
     }
     console.log('浏览会场')
+	await $.wait(parseInt(Math.random() * 1000 + 3000, 10))
     await takePostRequest('mainActive1');
 	await $.wait(parseInt(Math.random() * 1000 + 3000, 10))
 	await takePostRequest('mainActive2');
@@ -221,7 +222,7 @@ async function run() {
 
     await $.wait(parseInt(Math.random() * 2000 + 5000, 10))
       if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
-      if($.index % 3 == 0) await $.wait(parseInt(Math.random() * 5000 + 30000, 10))
+      if($.index % 3 == 0) await $.wait(parseInt(Math.random() * 5000 + 60000, 10))
   } catch (e) {
     console.log(e)
   }
