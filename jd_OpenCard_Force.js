@@ -15,11 +15,11 @@ cron:10 * * * *
 ============Quantumultx===============
 [task_local]
 #入会开卡领取礼包(通用)
-10 * * * * jd_OpenCard_Force1.js, tag=入会开卡领取礼包(通用), enabled=true
+10 * * * * jd_OpenCard_Force.js, tag=入会开卡领取礼包(通用), enabled=true
 
 
 */
-process.env.VENDER_ID='1000361242'
+process.env.VENDER_ID='1000361242&92739'
 const $ = new Env('入会开卡领取礼包(通用)');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
