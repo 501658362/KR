@@ -3,14 +3,15 @@
 先跑积分,不要问为什么分开😂
 BY：小埋
 
-一天3次
+新人助力10,老用户5
 
-10 6,10,12 * * * jd_mpdzcar_game.js
+10 3 * * * jd_mpdzcar_help.js
 */
-const $ = new Env('头文字J 游戏');
-const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-const notify = $.isNode() ? require('./sendNotify') : '';
+const $ = new Env('头文字J 助力');
+const jdCookieNode = $.isNode() ? require('../jdCookie.js') : '';
+const notify = $.isNode() ? require('../sendNotify') : '';
 let cookiesArr = [], cookie = '', message = '';
+let ownCode = null;
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {
         cookiesArr.push(jdCookieNode[item])
@@ -49,14 +50,19 @@ if ($.isNode()) {
                 }
                 continue
             }
+            authorCodeList = [
+                '',
+            ]
             $.bean = 0;
             $.ADID = getUUID('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 1);
             $.UUID = getUUID('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
             $.authorNum = `${random(1000000, 9999999)}`
             $.activityId = '1760007'
+            // $.activityShopId = '1760001'
             $.activityUrl = `https://mpdz-car-dz.isvjcloud.com/h5/?lng=00.000000&lat=00.000000&sid=&un_area=`
             await mpdzCar()
-            await $.wait(5000);
+            await $.wait(3000)
             if ($.bean > 0) {
                 message += `\n【京东账号${$.index}】${$.nickName || $.UserName} \n       └ 获得 ${$.bean} 京豆。`
             }
@@ -86,16 +92,19 @@ async function mpdzCar() {
         await task('/ql/front/getFansInfo', {
             "data": $.token,
             "source": "01",
-            // "ceshi": "1000004065"
         })
         // console.log($.buyerNick)
         if ($.buyerNick) {
-            await $.wait(5000);
-            console.log("游戏")
-            await task('/ql/front/carPlayUpdate', {
+            await $.wait(3000)
+            await task('/ql/front/loadUnitedCardActivityInfo', {
+                buyerNick: $.buyerNick
+            })
+            await $.wait(3000)
+            console.log('去助力 '+$.authorCode);
+            await task('/ql/front/participantBehavior', {
                 buyerNick: $.buyerNick,
-                "behavior": "run",
-                "energyValue": 10000,
+                inviterNick: $.authorCode,
+                "behavior": "inviteHelp",
             })
         } else {
             console.log("can't got buyerNick");
@@ -124,6 +133,10 @@ function task(function_id, body, isCommon = 0) {
                             switch (function_id) {
                                 case '/ql/front/getFansInfo':
                                     $.buyerNick = data.msg
+                                    if ($.index === 1) {
+                                        ownCode = $.buyerNick
+                                        console.log("助力码 "+ownCode)
+                                    }
                                     break;
                                 case '/ql/front/loadUnitedCardActivityInfo':
                                     $.activityContent = data.data
