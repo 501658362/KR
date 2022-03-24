@@ -11,11 +11,11 @@
 ## 入会开卡
 export VENDER_ID=''
 
-cron:10 10 10 10 *
+cron:10 * * * *
 ============Quantumultx===============
 [task_local]
 #入会开卡领取礼包(通用)
-10 10 10 10 * jd_OpenCard_Force.js, tag=入会开卡领取礼包(通用), enabled=true
+10 * * * * jd_OpenCard_Force1.js, tag=入会开卡领取礼包(通用), enabled=true
 
 
 */
