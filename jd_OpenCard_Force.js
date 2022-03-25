@@ -19,7 +19,7 @@ cron:10 10 10 10 *
 
 
 */
-process.env.VENDER_ID='655111&1000377178&1000370661&30871&1000083901'
+process.env.VENDER_ID='1000376169'
 const $ = new Env('入会开卡领取礼包(通用)');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
