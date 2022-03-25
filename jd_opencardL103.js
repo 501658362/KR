@@ -44,12 +44,11 @@ if ($.isNode()) {
         return;
     }
     
-     authorCodeList = await getAuthorCodeList('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/opencard103.json')
-     if(authorCodeList === '404: Not Found'){
          authorCodeList = [
-             'ab34b7bec7924666aef0944cd0e41ef2',
+             '74bba631ed144ad4bb67e772fccb1fdd',
+             'bc74822706724e4abea52ff2dc3acea3',
+             '3c3c9e3a50e44018843afeb09d5781fe',
          ]
-     }
 
     for (let i = 0; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
@@ -72,7 +71,7 @@ if ($.isNode()) {
             $.bean = 0;
             $.ADID = getUUID('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 1);
             $.UUID = getUUID('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+            $.authorCode =   authorCodeList[random(0, authorCodeList.length)]
             $.authorNum = `${random(1000000, 9999999)}`
             $.randomCode = random(1000000, 9999999)
             $.activityId = '4c7a504f30d7d2e0f73d84823ef84066'
@@ -196,10 +195,7 @@ function task(function_id, body, isCommon = 0, own = 0) {
                                     if (!data.data.hasEnd) {
                                         $.log(`开启【${data.data.activityName}】活动`)
                                         $.log("-------------------")
-                                        if ($.index === 1) {
-                                            ownCode = data.data.actorUuid
-                                            console.log(ownCode)
-                                        }
+                                            console.log( data.data.actorUuid)
                                         $.actorUuid = data.data.actorUuid;
                                         $.skuTask = data.data.addSku;
                                         $.shopTask = data.data.followShop;
