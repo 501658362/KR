@@ -17,7 +17,7 @@
 // 10 * * * * jd_zdjr1.js, tag=组队瓜分京豆, enabled=true
 // */
 //
-//  let jd_zdjr_activityId = '5a9d8b6aac7e47a1857250e68fc62063'// 活动ID
+//  let jd_zdjr_activityId = 'c28f815c374041ec806ce97d5b69ef3e'// 活动ID
 // let jd_zdjr_activityUrl = "https://lzkjdz-isv.isvjcloud.com"// 活动地址
 //
 //
