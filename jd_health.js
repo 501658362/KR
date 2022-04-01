@@ -7,17 +7,17 @@
 ===================quantumultx================
 [task_local]
 #东东健康社区
-0 0,6,21 * * * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_health.js, tag=东东健康社区, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+13 1,6,22 * * * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_health.js, tag=东东健康社区, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
 =====================Loon================
 [Script]
-cron "0 0,6,21 * * *" script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_health.js, tag=东东健康社区
+cron "13 1,6,22 * * *" script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_health.js, tag=东东健康社区
 
 ====================Surge================
-东东健康社区 = type=cron,cronexp="0 0,6,21 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_health.js
+东东健康社区 = type=cron,cronexp="13 1,6,22 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_health.js
 
 ============小火箭=========
-东东健康社区 = type=cron,script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_health.js, cronexpr="0 0,6,21 * * *", timeout=3600, enable=true
+东东健康社区 = type=cron,script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_health.js, cronexpr="13 1,6,22 * * *", timeout=3600, enable=true
  */
 const $ = new Env("东东健康社区");
 const jdCookieNode = $.isNode() ? require("./jdCookie.js") : "";
@@ -79,7 +79,6 @@ async function main() {
     $.score = 0
     $.earn = false
     await getTaskDetail(-1)
-    await getCommodities()
     await getTaskDetail(16)
     await getTaskDetail(6)
     for(let i = 0 ; i < 5; ++i){
@@ -91,6 +90,10 @@ async function main() {
     await collectScore()
     await getTaskDetail(22);
     await getTaskDetail(-1)
+
+    if (reward) {
+      await getCommodities()
+    }
 
   } catch (e) {
     $.logErr(e)
@@ -181,7 +184,6 @@ async function getCommodities() {
       try {
         if (safeGet(data)) {
           data = $.toObj(data)
-            console.log(data.data.result.jBeans)
           let beans = data.data.result.jBeans.filter(x => x.status !== 0 && x.status !== 1)
           if (beans.length !== 0) {
             for (let key of Object.keys(beans)) {
@@ -246,12 +248,6 @@ function doTask(taskToken, taskId, actionType = 0) {
                 console.log(`任务领取结果：${nc(oc(() => data.data.bizMsg) , JSON.stringify(data))}`)
             } else {
               console.log(`任务完成失败：${nc(oc(() => data.data.bizMsg) , JSON.stringify(data))}`)
-              if (taskId===6 && data.data.bizMsg.indexOf('助力已满员')>-1)
-              {
-                for (let z = 0; z < $.shareCodesArr.length; z++) {
-                  $.shareCodesArr[z]=$.shareCodesArr[z].replace(taskToken,'')
-                }
-              }
             }
           }
         } catch (e) {
