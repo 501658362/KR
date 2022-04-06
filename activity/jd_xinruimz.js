@@ -1,7 +1,7 @@
-if (!["true"].includes(process.env.JD_Xinruimz)) {
-    console.log("避免自动运行请设置环境变量JD_Xinruimz为\"true\"来运行本脚本")
-    return
-}
+// if (!["true"].includes(process.env.JD_Xinruimz)) {
+//     console.log("避免自动运行请设置环境变量JD_Xinruimz为\"true\"来运行本脚本")
+//     return
+// }
 /*
 cron 30 6-20/3 * * * jd_xinruimz.js
 TG https://t.me/duckjobs
@@ -13,8 +13,8 @@ Rpeo https://github.com/okyyds
 */
 
 const $ = new Env("颜究种植园");
-const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-const notify = $.isNode() ? require('./sendNotify') : '';
+const jdCookieNode = $.isNode() ? require('../jdCookie.js') : '';
+const notify = $.isNode() ? require('../sendNotify') : '';
 let cookiesArr = [], cookie = '', message = '';
 let waternum = 0;
 let exfertilizer = true;

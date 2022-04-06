@@ -9,11 +9,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:25 15 10-16 3 *
+cron:15 17 10-16 3 *
 ============Quantumultx===============
 [task_local]
 #3.10-3.16 男士品类日
-25 15 10-16 3 * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_opencardL95.js, tag=3.10-3.16 男士品类日, enabled=true
+15 17 10-16 3 * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_opencardL95.js, tag=3.10-3.16 男士品类日, enabled=true
 
 */
 const $ = new Env('3.10-3.16 男士品类日');
@@ -48,15 +48,14 @@ let authorCodeList = []
     return;
   }
   $.activityId = "dz04bfe2a64b46bbcb1110fc0ca9bf"
-  authorCodeList = await getAuthorCodeList('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/opencard95.json')
-    if(authorCodeList === '404: Not Found'){
         authorCodeList = [
-            'd08920bbdcd44feca9f9aba68133c5d1',
+            '93f9a812b3bd4449badceb502c6332cc',
+            '5728fed3849c47a4bdcd21daaa44d505',
+            '640799c097104dc0a82489b6fb008e3a',
         ]
-    }
-  $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -193,10 +192,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
     

@@ -12,11 +12,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:30 1,14 1-8 3 *
+cron:30 1,20 * * *
 ============Quantumultx===============
 [task_local]
 #2.28-3.8 大牌会员日
-30 1,14 1-8 3 * jd_opencardL84.js, tag=2.28-3.8 大牌会员日, enabled=true
+30 1,20 * * * jd_opencardL84.js, tag=2.28-3.8 大牌会员日, enabled=true
 
 */
 
@@ -52,15 +52,15 @@ let activityCookie =''
     return;
   }
   $.activityId = "dz3eb0e16893aa4f7a91d103a6db0b"
-  authorCodeList = await getAuthorCodeList('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/opencard84.json')
-    if(authorCodeList === '404: Not Found'){
-        authorCodeList = [
-            '0bb80b1737404f1ba5ed7de596f960b4',
-        ]
-    }
-  $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
+  authorCodeList = [
+    'e4a57436cf764f55a784c71a3469f3cd',
+    '70921683b8fe40c3ad1cdf9e6753dc6d',
+    'a3e2d123082a492f8e7c33135f418529',
+    'd5cac96712a5441face950ef85d8891f',
+  ]
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/bigname/memberday/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -160,7 +160,7 @@ async function run() {
     }else{
       console.log('已全部开卡')
     }
-    
+
     console.log(`${$.score}值`)
       $.runFalag = true
       let count = parseInt($.score/100)
@@ -176,7 +176,7 @@ async function run() {
         }
         await $.wait(parseInt(Math.random() * 2000 + 2000, 10))
       }
-    
+
     await $.wait(parseInt(Math.random() * 1000 + 2000, 10))
     await takePostRequest('getDrawRecordHasCoupon');
     await takePostRequest('getShareRecord');
@@ -186,10 +186,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
       if($.index % 3 == 0) console.log('休息1分钟，别被黑ip了\n可持续发展')
@@ -341,7 +338,7 @@ async function takePostRequest(type) {
       })
     })
   }
-  
+
 async function dealReturn(type, data) {
   let res = ''
   try {

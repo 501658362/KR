@@ -7,7 +7,7 @@
 Author: 一风一扬
 功能：健康社区-种植园自动任务
 Date: 2022-1-4
-cron: 23 11,13,21 * * * jd_health_plant.py
+cron: 15 7,15,21 * * * jd_health_plant.py
 new Env('京东健康社区-种植园自动任务');
 
 
@@ -512,10 +512,10 @@ def charge(charge_targe_id,cookies,sid,account):
         for i in range(10):
             response = requests.post(url=url, verify=False, headers=headers,data=data.encode())  #data中有汉字，需要encode为utf-8
             result = response.json()
-            print(result)
+            # print(result)
             user_coins = result['user_coins']   #剩余能量
             coins = result['plant_info']['coins']   #消耗能量
-            msg ("充能成功，消耗【{0}】能量，剩余能量【{1}】".format (coins,user_coins))
+            msg(f'充能成功，消耗【{coins}】能量，剩余能量【{user_coins}】')
             time.sleep(2)
 
     except Exception as e:
@@ -566,10 +566,10 @@ def start():
                         taskName, taskId, taskToken_list = get_task2 (cookie,sid, account)
                         for i in taskToken_list:
                             do_task2 (cookie, taskName, taskId, i, sid,account)
-
+                    
                 except Exception as e:
                     pass
-                charge (charge_targe_id, cookie, sid, account)
+                charge (charge_targe_id, cookie,sid, account)
         else:
             printT("请检查变量plant_cookie是否已填写")
 

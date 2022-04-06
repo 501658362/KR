@@ -49,7 +49,7 @@ let activityCookie =''
     return;
   }
   $.activityId = "union235434985dzlhkk"
-  $.shareUuid = "26140a8c22e34c61b034a8cf98df4a65"
+  $.shareUuid = new Date().getTime()%2==0?"fe8a1a9128df40549c40b6c0a92c0584":"9d9e3ec50f76497d99173cca4352cd74"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
@@ -221,10 +221,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
     

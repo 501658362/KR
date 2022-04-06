@@ -10,11 +10,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:55 0,19 2-15 4 *
+cron:9 22 2-15 4 *
 ============Quantumultx===============
 [task_local]
 #3.30-4.8 早鸟派对 好物焕春
-55 0,19 2-15 4 * jd_opencardL106.js, tag=4.1-4.15 早鸟派对 好物焕春, enabled=true
+9 22 2-15 4 * jd_opencardL106.js, tag=4.1-4.15 早鸟派对 好物焕春, enabled=true
 
 */
 const $ = new Env("4.1-4.15 早鸟派对 好物焕春");
@@ -44,6 +44,7 @@ if ($.isNode()) {
     $.msg($.name, "【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取", "https://bean.m.jd.com/bean/signIndex.action", { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
     return;
   }
+
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
@@ -66,12 +67,12 @@ if ($.isNode()) {
       $.ADID = getUUID("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 1);
       $.UUID = getUUID("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
       authorCodeList = [
-        'a01cb9a76a9641b0875c8a12aeb72b13',
-        '6a337cf51935440faea628607783d573',
-        'b092017cb02a4a4c8892077bef27b1b4',
-      ];
+        'ad6f5d7d640748b6ad58d5ef614495ac',
+        'eb85c6c74f8e43699cdb6d005c6e178b',
+        '8fd6f97dda724d8ca1299c37d37b2b23',
+      ]
       // $.authorCode = authorCodeList[random(0, authorCodeList.length)];
-      $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+      $.authorCode =   authorCodeList[random(0, authorCodeList.length)]
       $.authorNum = `${random(1000000, 9999999)}`;
       $.randomCode = random(1000000, 9999999);
       $.activityId = "dzfbeaffca4eaca899cd85de890ade";
@@ -197,10 +198,8 @@ function task(function_id, body, isCommon = 0, own = 0) {
                   if (!data.data.hasEnd) {
                     $.log(`开启【${data.data.activityName}】活动`);
                     $.log("-------------------");
-                    if ($.index === 1) {
                       ownCode = data.data.actorUuid;
                       console.log(ownCode);
-                    }
                     $.actorUuid = data.data.actorUuid;
                   } else {
                     $.log("活动已经结束");

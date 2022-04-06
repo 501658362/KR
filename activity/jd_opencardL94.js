@@ -41,9 +41,15 @@ let activityCookie =''
     return;
   }
   $.activityId = "unionkbblnt20220305dzlhkk"
-  $.shareUuid = "c2a121566bdc44a2af5ad89a899b38a7"
+  authorCodeList = [
+    'bc5e8b59a9324c3c8fd6c0e8d3bcc0da',
+    'cf007ee9f4bf4026891c256970e1b3c6',
+    '05364687b6e647c58c7fe69d18bb1f53',
+    '96cb8c2127054b4ab0b82a386b10ed28',
+  ]
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -190,10 +196,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
       if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')

@@ -10,11 +10,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:55 3,8 2-12 4 *
+cron:22 22 2-12 4 *
 ============Quantumultx===============
 [task_local]
 #3.30-4.8 早鸟派对 好物焕春
-55 3,8 2-12 4 * jd_opencardL107.js, tag=4.1-4.12 宝妈省钱有计，邀您一起领京豆, enabled=true
+22 22 2-12 4 * jd_opencardL107.js, tag=4.1-4.12 宝妈省钱有计，邀您一起领京豆, enabled=true
 
 */
 const $ = new Env("4.1-4.12 宝妈省钱有计，邀您一起领京豆");
@@ -66,12 +66,12 @@ if ($.isNode()) {
       $.ADID = getUUID("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 1);
       $.UUID = getUUID("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
       authorCodeList = [
-        '4b80a8a0b881403fb1ab631d3bf27ca6',
-        '73238f97531d4890bc7a00b0fb6adb0f',
-        'aba2fb4721174c59915793b7303d57d0',
-      ];
+        '3f4c70bd1ebb45ba9e57042562aa095d',
+        '7d4620cdb45e4747a8e28efb8ce9ee7d',
+        '04af6024a4534cf0814ad012718e8873',
+      ]
       // $.authorCode = authorCodeList[random(0, authorCodeList.length)];
-      $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+      $.authorCode = authorCodeList[random(0, authorCodeList.length)]
       $.authorNum = `${random(1000000, 9999999)}`;
       $.randomCode = random(1000000, 9999999);
       $.activityId = "dzf14101834564a0b1336646135829";
@@ -197,10 +197,8 @@ function task(function_id, body, isCommon = 0, own = 0) {
                   if (!data.data.hasEnd) {
                     $.log(`开启【${data.data.shareTitle}】活动`);
                     $.log("-------------------");
-                    if ($.index === 1) {
                       ownCode = data.data.actorUuid;
                       console.log(ownCode);
-                    }
                     $.actorUuid = data.data.actorUuid;
                   } else {
                     $.log("活动已经结束");

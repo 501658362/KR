@@ -6,11 +6,11 @@
 入口：[ 3.1-3.15 集卡王冠下的少女心]
 
 
-cron:30 10,18 1-15 3 *
+cron:30 12,22 1-15 3 *
 ============Quantumultx===============
 [task_local]
 #3.1-3.15 集卡王冠下的少女心
-30 10,18 1-15 3 * jd_opencardL86.js, tag=3.1-3.15 集卡王冠下的少女心, enabled=true
+30 12,22 1-15 3 * jd_opencardL86.js, tag=3.1-3.15 集卡王冠下的少女心, enabled=true
 
 */
 
@@ -45,10 +45,12 @@ let activityCookie =''
     return;
   }
   $.activityId = "uniongame20220301ul6ar3g76a"
-  $.shareUuid = "deb51eda516f4ad481fccb34b4a65203"
+  $.shareUuid = "b27acb08d1fa444c9d3a0ff7a7b5fc8c"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
 
+  authorCodeList=['b27acb08d1fa444c9d3a0ff7a7b5fc8c','f94179ce90e343849cc8c2c624bff984']
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -220,10 +222,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
     

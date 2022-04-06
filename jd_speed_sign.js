@@ -10,17 +10,17 @@
 ============Quantumultx===============
 [task_local]
 #京东极速版
-21 3,8 * * * jd_speed_sign.js, tag=京东极速版, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
+21 0-21/3 * * * jd_speed_sign.js, tag=京东极速版, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "21 3,8 * * *" script-path=jd_speed_sign.js,tag=京东极速版
+cron "21 0-21/3 * * *" script-path=jd_speed_sign.js,tag=京东极速版
 
 ===============Surge=================
-京东极速版 = type=cron,cronexp="21 3,8 * * *",wake-system=1,timeout=33600,script-path=jd_speed_sign.js
+京东极速版 = type=cron,cronexp="21 0-21/3 * * *",wake-system=1,timeout=33600,script-path=jd_speed_sign.js
 
 ============小火箭=========
-京东极速版 = type=cron,script-path=jd_speed_sign.js, cronexpr="21 3,8 * * *", timeout=33600, enable=true
+京东极速版 = type=cron,script-path=jd_speed_sign.js, cronexpr="21 0-21/3 * * *", timeout=33600, enable=true
 */
 
 const $ = new Env('京东极速版');
@@ -38,6 +38,11 @@ if ($.isNode()) {
   };
 } else {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
+}
+
+let h=new Date().getHours()
+if(h%4<2){
+  cookiesArr=cookiesArr.reverse()
 }
 
 const JD_API_HOST = 'https://api.m.jd.com/', actCode = 'visa-card-001';
@@ -800,11 +805,7 @@ function taskGetUrl(function_id, body) {
 
 function invite2() {
   let inviterIdArr = [
-    "9vOskAagcMJ4EOWXPQSS9A==",
-    "9irilvenEupYF488TUrl19DLuKQ9zWnXYHf9anC0ujw=",
-    "0Iut/X6Fx833sGPARnxK0TEJAHhGl+YhaIQMI1735mE=",
-    "EX5edGJ14b70ZUglRq7IMmT3GewOP9IL/BN3k2dfrjw=",
-    "ty6iFSNMeLZfu/F1QvwzAnifpKIunqsG7am3vAp9rkc="
+    "rw9f+RMAvkULNBYikd4qGg=="
   ]
   let inviterId = inviterIdArr[Math.floor((Math.random() * inviterIdArr.length))]
   let options = {
@@ -831,11 +832,7 @@ function invite2() {
 function invite() {
   let t = +new Date()
   let inviterIdArr = [
-    "9vOskAagcMJ4EOWXPQSS9A==",
-    "9irilvenEupYF488TUrl19DLuKQ9zWnXYHf9anC0ujw=",
-    "0Iut/X6Fx833sGPARnxK0TEJAHhGl+YhaIQMI1735mE=",
-    "EX5edGJ14b70ZUglRq7IMmT3GewOP9IL/BN3k2dfrjw=",
-    "ty6iFSNMeLZfu/F1QvwzAnifpKIunqsG7am3vAp9rkc="
+    "rw9f+RMAvkULNBYikd4qGg=="
   ]
   let inviterId = inviterIdArr[Math.floor((Math.random() * inviterIdArr.length))]
   let options = {

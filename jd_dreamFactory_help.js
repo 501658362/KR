@@ -43,10 +43,6 @@ let tuanActiveId = ``, hasSend = false;
 const jxOpenUrl = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://wqsd.jd.com/pingou/dream_factory/index.html%22%20%7D`;
 let cookiesArr = [], cookie = '', message = '', allMessage = '', jdDreamFactoryShareArr = [];
 const newShareCodes = [
-  'urGPT1c0ITHN7W2XFqSKTg==',
-  'XGv-W12NaJeargxyJ9M5Rg==',
-  'Q2qrDiqp70N5yic3BGvcOQ==',
-  'SgVsBMPJ0CDXKbbPSoF3xg=='
 ];
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 $.tuanIds = [];
@@ -143,6 +139,19 @@ async function helpFriends() {
           console.log(`助力朋友：${code}成功，因一次只能助力一个，故跳出助力`)
           break
         } else if (assistFriendRes && assistFriendRes['ret'] === 11009) {
+          console.log(`助力朋友[${code}]失败：${assistFriendRes.msg}，跳出助力`);
+          break
+        }else if (assistFriendRes.msg.indexOf('已经满员')>0) {
+          console.log(`助力朋友[${code}]失败：${assistFriendRes.msg}，移除该助力码`);
+          for (let z = 0; z < jdDreamFactoryShareArr.length; z++) {
+            jdDreamFactoryShareArr[z]=jdDreamFactoryShareArr[z].replace(code,'')
+          }
+        }else if (assistFriendRes.msg.indexOf('好友的工厂暂未开启')>0) {
+          console.log(`助力朋友[${code}]失败：${assistFriendRes.msg}，移除该助力码`);
+          for (let z = 0; z < jdDreamFactoryShareArr.length; z++) {
+            jdDreamFactoryShareArr[z]=jdDreamFactoryShareArr[z].replace(code,'')
+          }
+        }else if (assistFriendRes.msg.indexOf('您暂未符合活动邀请资格,敬请期待下次活动吧')>0) {
           console.log(`助力朋友[${code}]失败：${assistFriendRes.msg}，跳出助力`);
           break
         } else {

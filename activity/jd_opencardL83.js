@@ -11,11 +11,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:25 12 27-28,1-4 2,3 *
+cron:25 11,23 20-28,1-4 2,3 *
 ============Quantumultx===============
 [task_local]
 #2.24~3.4 常青藤联合开卡
-25 12 27-28,1-4 2,3 * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_opencardL83.js, tag=2.24~3.4 常青藤联合开卡, enabled=true
+25 11,23 20-28,1-4 2,3 * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_opencardL83.js, tag=2.24~3.4 常青藤联合开卡, enabled=true
 
 */
 const $ = new Env('2.24~3.4 常青藤联合开卡');
@@ -41,7 +41,6 @@ $.outFlag = false
 $.activityEnd = false
 let lz_jdpin_token_cookie =''
 let activityCookie =''
-let authorCodeList = []
 !(async () => {
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/', {
@@ -50,16 +49,11 @@ let authorCodeList = []
     return;
   }
   $.activityId = "dzb1830e004adfb1f0b05a83bf6ac7"
-  authorCodeList = await getAuthorCodeList('https://gitee.com/KingRan521/JD-Scripts/raw/master/shareCodes/opencard83.json')
-    if(authorCodeList === '404: Not Found'){
-        authorCodeList = [
-            '0ca1c88a3437428c9f0c2376af590c7f',
-        ]
-    }
-  $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
+  authorCodeList=['ec19d78d59fb4dc2ab36aca9ab16a61d','da0074c0352d43bdb5c4aea039111826','ab2885e0d1fa4288888877ca884f6d38','412d28f9264e4103996892bc9e924f86']
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
       $.index = i + 1;
@@ -169,7 +163,7 @@ async function run() {
       flag = true
       await takePostRequest('followShop');
       await $.wait(parseInt(Math.random() * 2000 + 3000, 10))
-    }    
+    }
     $.log("加购: " + $.addSku)
     
     if(!$.addSku && !$.outFlag){
@@ -216,10 +210,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
     
@@ -728,29 +719,7 @@ function getshopactivityId() {
     })
   })
 }
-function getAuthorCodeList(url) {
-    return new Promise(resolve => {
-        const options = {
-            url: `${url}?${new Date()}`, "timeout": 10000, headers: {
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
-            }
-        };
-        $.get(options, async (err, resp, data) => {
-            try {
-                if (err) {
-                    $.log(err)
-                } else {
-                if (data) data = JSON.parse(data)
-                }
-            } catch (e) {
-                $.logErr(e, resp)
-                data = null;
-            } finally {
-                resolve(data);
-            }
-        })
-    })
-}
+
 function jsonParse(str) {
   if (typeof str == "string") {
     try {

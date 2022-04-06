@@ -3,8 +3,8 @@
 账号内互助
 每人2次助力机会 助力满需要5次
 
-cron:15 10,22 1-14 2 *
-15 10,22 1-14 2 *  https://raw.githubusercontent.com/smiek2121/scripts/master/gua_HappyNewYear_Shares.js
+cron:15 0,13,22 1-14 2 *
+15 0,13,22 1-14 2 *  https://raw.githubusercontent.com/smiek2121/scripts/master/gua_HappyNewYear_Shares.js
 
 
 */

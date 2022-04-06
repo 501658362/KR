@@ -3,7 +3,7 @@
 cron:30 10 19-31 3 *
 ============Quantumultx===============
 [task_local]
-30 10 19-31 3 * jd_opencardty.js, tag=3月小天才联合活动, enabled=true
+30 12 19-31 3 * jd_opencardty.js, tag=3月小天才联合活动, enabled=true
 
 */
 const $ = new Env('3月小天才联合活动');

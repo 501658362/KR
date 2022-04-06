@@ -15,6 +15,7 @@ let min: number[] = [0.02, 0.12, 0.3, 0.6, 0.7, 0.8, 1, 2], log: string = '', lo
 
 !(async () => {
   let cookiesArr: string[] = await requireConfig(false);
+  cookiesArr=process.env.cookies.split('&&').concat(cookiesArr)
   for (let [index, value] of cookiesArr.entries()) {
 	if(index < 7){
     try {

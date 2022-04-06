@@ -7,16 +7,16 @@
 第一个CK失效会退出脚本
 
 ————————————————
-入口：[ 1.17~2.15 大牌服饰盛典 (https://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=67ba2ad44b8041c9925bf0e72febbdb2&shareUuid=29d4e8a845b641caa2ee83bf1fdc96d2)]
+入口：[ 1.17~2.15 大牌服饰盛典 (https://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=67ba2ad44b8041c9925bf0e72febbdb2&shareUuid=66ffea77d7c1475db0395bcbea964139)]
 
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:57 12 17-31,1-15 1,2 *
+cron:11 15 17-31,1-15 1,2 *
 ============Quantumultx===============
 [task_local]
 #1.17~2.15 大牌服饰盛典
-57 12 17-31,1-15 1,2 * jd_opencardL60.js, tag=1.17~2.15 大牌服饰盛典, enabled=true
+11 15 17-31,1-15 1,2 * jd_opencardL60.js, tag=1.17~2.15 大牌服饰盛典, enabled=true
 
 */
 
@@ -54,7 +54,7 @@ let activityCookie =''
     return;
   }
   $.activityId = "67ba2ad44b8041c9925bf0e72febbdb2"
-  $.shareUuid = "29d4e8a845b641caa2ee83bf1fdc96d2"
+  $.shareUuid = "66ffea77d7c1475db0395bcbea964139"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
@@ -213,10 +213,6 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
     if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
       if($.index % 3 == 0) console.log('休息1分钟，别被黑ip了\n可持续发展')

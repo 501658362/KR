@@ -8,7 +8,7 @@ by:小手冰凉 tg:@chianPLA
 ===========================
 [task_local]
 #微信签到领红包
-3 0,11 * * * jd_wq_wxsign.js, tag=微信签到领红包, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+3 0,20 * * * jd_wq_wxsign.js, tag=微信签到领红包, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
 const $ = new Env("微信签到领红包");
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
