@@ -51,9 +51,9 @@ let activityCookie =''
   }
   $.activityId = "dzlhkkc3c34b18b0bc11ec8e240200"
   authorCodeList = [
-    '53a23b110c02451ea9a0d1add37e1fdc',
-    '2723a1ee855b44a4a38119d5dfc0ca0b',
-    'fbff43d3722c4c4e9c227fcc7f1d66dc',
+    '5016d98109e642aa97c9f768993783bd',
+    'b1466ebc079e4f4f97cb71ef55e22392',
+    '74ac8fca58984b04bbf7d68acb51746c',
   ]
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {
