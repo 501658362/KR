@@ -3,7 +3,7 @@
 cron:30 12,16 19-31/3 4 *
 ============Quantumultx===============
 [task_local]
-30 12,16 19-31/3 4 * jd_opencardty.js, tag=joy通用活动, enabled=true
+30 12,16 * * * jd_opencardty.js, tag=joy通用活动, enabled=true
 
 */
 const $ = new Env('4月蒙牛春日音乐节任务开卡');

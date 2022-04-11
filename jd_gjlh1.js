@@ -1,7 +1,7 @@
 /*
 [task_local]
 #4月京东国际联合活动
-31 1 10-18/3 4 * jd_gjlh.js, tag=4月京东国际联合活动, enabled=true
+31 15 * * * jd_gjlh.js, tag=4月京东国际联合活动, enabled=true
  */
 const $ = new Env('4月京东国际联合活动');
 const notify = $.isNode() ? require('./sendNotify') : '';

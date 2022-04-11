@@ -1,7 +1,7 @@
 /*
 [task_local]
 #4月蒙牛春日音乐节抽奖机
-31 14 9-21/3 4 * jd_mncryyj.js, tag=4月蒙牛春日音乐节抽奖机, enabled=true
+31 16 * * * jd_mncryyj.js, tag=4月蒙牛春日音乐节抽奖机, enabled=true
  */
 const $ = new Env('4月蒙牛春日音乐节抽奖机');
 const notify = $.isNode() ? require('./sendNotify') : '';
