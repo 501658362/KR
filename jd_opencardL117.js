@@ -12,11 +12,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:40 0,17 26,15-25 4 *
+cron:10 1,13 26,15-25 4 *
 ============Quantumultx===============
 [task_local]
 #4.15~4.25 充值能量 魅力加满
-40 0,17 26,15-25 4 * jd_opencardL117.js, tag=4.15~4.25 充值能量 魅力加满, enabled=true
+10 1,13 26,15-25 4 * jd_opencardL117.js, tag=4.15~4.25 充值能量 魅力加满, enabled=true
 
 */
 
@@ -250,7 +250,10 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
- 
+    if($.index == 1){
+      $.shareUuid = $.actorUuid
+      console.log(`后面的号都会助力:${$.shareUuid}`)
+    }
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
       if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
       if($.index % 3 == 0) await $.wait(parseInt(Math.random() * 5000 + 30000, 10))
