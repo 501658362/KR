@@ -59,13 +59,13 @@ let nowTime = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*
   $.activityId = "dzuniongame2022c8e0904b0509d0"
   $.shareUuid = "db858093d4eb4e5bab76afa21fd07dd1"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["db858093d4eb4e5bab76afa21fd07dd1","60ff74f8abd64f72bc502dff8a6fbff8","c1f5d170bee8462c86992c27c05a7def"]
-  let s = Math.floor((Math.random()*10))
-  let n = 0
-  n = Math.floor((Math.random()*shareUuidArr.length))
-  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
-  
+  authorCodeList = [
+    '80fce469094f40818720f0e533e76cae',
+    '937cbdedbb8b4bf582f8e6dbcc8e6119',
+    'e35229bb3e004816b7d62c6ec42c25f3',
+  ]
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
