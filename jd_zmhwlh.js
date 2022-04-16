@@ -1,7 +1,7 @@
 /*
 [task_local]
 #4月桌面好物联合活动
-31 18 16-30/3 4 * jd_zmhwlh.js, tag=4月桌面好物联合活动, enabled=true
+31 18 16-30 4 * jd_zmhwlh.js, tag=4月桌面好物联合活动, enabled=true
  */
 const $ = new Env('4月桌面好物联合活动');
 const notify = $.isNode() ? require('./sendNotify') : '';

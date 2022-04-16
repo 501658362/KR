@@ -1,7 +1,7 @@
 /*
 [task_local]
 #4月小天才联合活动
-31 16 16-30/3 4 * jd_xtclh.js, tag=4月小天才联合活动, enabled=true
+31 16 16-30 4 * jd_xtclh.js, tag=4月小天才联合活动, enabled=true
  */
 const $ = new Env('4月小天才联合活动');
 const notify = $.isNode() ? require('./sendNotify') : '';
