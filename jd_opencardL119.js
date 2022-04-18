@@ -55,14 +55,13 @@ let activityCookie =''
   $.activityId = "dzlhkk081f1bc4bacd11ec99b60200"
   $.shareUuid = "508f99fb7c114dc58132074f397199ff"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["508f99fb7c114dc58132074f397199ff","d18c095e2b9048ec97e4e667da84c4a4","620aeb94cd3146368fc0d6bf4f3cff92"]
-  let s = Math.floor((Math.random()*10))
-  let n = 0
-  n = Math.floor((Math.random()*shareUuidArr.length))
-  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
-
-
+  authorCodeList = [
+    'aa973d7bd4c04aff9af09b00f09a8774',
+    '313457b2e60f45ee8a16511438c31abd',
+    '747bba07c785428599cb397a1b5b7eee',
+  ]
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
