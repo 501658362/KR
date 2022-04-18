@@ -1667,7 +1667,7 @@ if ($[_0x3625('0')]()) {
 } else {
     cookiesArr = [$[_0x3625('a')](_0x3625('b')), $[_0x3625('a')](_0x3625('c')), ...$[_0x3625('d')]($[_0x3625('a')](_0x3625('e')) || '\x5b\x5d')[_0x3625('f')](_0x35f952 => _0x35f952[_0x3625('10')])][_0x3625('11')](_0x271dff => !!_0x271dff);
 }
-cookiesArr=process.env.cookies.split('&&').concat(cookiesArr)
+cookiesArr=require('./jd_env_ck').concatCK(cookiesArr)
 
 $[_0x3625('12')] = [];
 $[_0x3625('13')] = _0x3625('14');

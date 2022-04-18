@@ -44,7 +44,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
     return;
   }
   //$.updatePkActivityIdRes = await getAuthorShareCode('')
-  cookiesArr=process.env.cookies.split('&&').concat(cookiesArr)
+  cookiesArr=require('./jd_env_ck').concatCK(cookiesArr)
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
