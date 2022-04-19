@@ -1667,7 +1667,7 @@ if ($[_0x3625('0')]()) {
 } else {
     cookiesArr = [$[_0x3625('a')](_0x3625('b')), $[_0x3625('a')](_0x3625('c')), ...$[_0x3625('d')]($[_0x3625('a')](_0x3625('e')) || '\x5b\x5d')[_0x3625('f')](_0x35f952 => _0x35f952[_0x3625('10')])][_0x3625('11')](_0x271dff => !!_0x271dff);
 }
-cookiesArr=require('../gyJack_cc/jdenvck').concatCK(cookiesArr)
+// cookiesArr = require('../gyJack_cc/jdenvck').concatCK(cookiesArr)
 
 $[_0x3625('12')] = [];
 $[_0x3625('13')] = _0x3625('14');
@@ -1684,7 +1684,7 @@ $[_0x3625('16')] = _0x3625('17');
     $[_0x3625('1f')] = $[_0x3625('0')]() ? require(_0x3625('20')) : CryptoJS;
     await requestAlgo();
     await $[_0x3625('21')](0x3e8);
-    for (let _0x161eea = 0x0; _0x161eea < cookiesArr[_0x3625('22')]; _0x161eea++) {
+    for (let _0x161eea = 0x0; _0x161eea < 20; _0x161eea++) {
         cookie = cookiesArr[_0x161eea];
         $[_0x3625('23')] = decodeURIComponent(cookie[_0x3625('24')](/pt_pin=([^; ]+)(?=;?)/) && cookie[_0x3625('24')](/pt_pin=([^; ]+)(?=;?)/)[0x1]);
         $[_0x3625('25')] = _0x161eea + 0x1;
@@ -1742,7 +1742,7 @@ $[_0x3625('16')] = _0x3625('17');
             }
         }
     }
-    for (let _0x272944 = 0x0; _0x272944 < cookiesArr[_0x3625('22')]; _0x272944++) {
+    for (let _0x272944 = 0x0; _0x272944 < 20; _0x272944++) {
         cookie = cookiesArr[_0x272944];
         $[_0x3625('41')] = !![];
         $[_0x3625('23')] = decodeURIComponent(cookie[_0x3625('24')](/pt_pin=([^; ]+)(?=;?)/) && cookie[_0x3625('24')](/pt_pin=([^; ]+)(?=;?)/)[0x1]);
