@@ -54,12 +54,13 @@ let cookies = []
   $.activityId = "dz479899c4c94b59984be24e02bcb"
   $.shareUuid = "af32d2360f4243febe86003a8736ea27"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/drinkcategory/piecetoge1/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["af32d2360f4243febe86003a8736ea27","b25d37693558411ebb63c71571787783","24257e628dde43c994fad8b0c32e2b14"]
-  let s = Math.floor((Math.random()*3))
-  let n = 0
-  n = Math.floor((Math.random()*shareUuidArr.length))
-  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
+  authorCodeList = [
+    '8ad2f1ee900a41f69c3722a2bfcfa5aa',
+    '7fcdfc92af4c41cca8ab1d6ab1b91355',
+    '62b2e21f6a464527860de70ae6091f5c',
+  ]
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
