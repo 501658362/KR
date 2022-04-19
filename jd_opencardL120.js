@@ -11,11 +11,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
   
-cron:35 8 18-30 4 *
+cron:35 11 18-30 4 *
 ============Quantumultx===============
 [task_local]
 #4.18~4.30 酒水会员盛典
-35 8 18-30 4 * jd_opencardL120.js, tag=4.18~4.30 酒水会员盛典, enabled=true
+35 11 18-30 4 * jd_opencardL120.js, tag=4.18~4.30 酒水会员盛典, enabled=true
 
 */
 
