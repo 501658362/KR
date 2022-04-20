@@ -10,15 +10,15 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:21 17 17-23 4 *
+cron:11 6 17-23 4 *
 ============Quantumultx===============
 [task_local]
 #4.17-4.23 我的新家 超级配
-21 17 17-23 4 * jd_opencardL123.js, tag=4.17-4.23 我的新家 超级配, enabled=true
+11 6 17-23 4 * jd_opencardL123.js, tag=4.17-4.23 我的新家 超级配, enabled=true
 
 
 */
-let opencard_toShop = "true"
+let opencard_toShop = "false"
 const $ = new Env('4.17-4.23 我的新家 超级配');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -35,6 +35,7 @@ if ($.isNode()) {
 } else {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
+opencard_toShop = $.isNode() ? (process.env.opencard_toShop123 ? process.env.opencard_toShop123 : `${opencard_toShop}`) : ($.getdata('opencard_toShop123') ? $.getdata('opencard_toShop123') : `${opencard_toShop}`);
 allMessage = ""
 message = ""
 $.hotFlag = false
@@ -53,13 +54,12 @@ let authorCodeList = []
   $.activityId = "d1d801f6b58c49279abd443958d46eb4"
   $.shareUuid = "64c683c28fec4951bff4e3483413ead4"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  authorCodeList = [
-    'a4f90a43af81436593e4657e2c808364',
-    'f88dd4fac3ba431b9ebcc093b7c306f7',
-    'f794f91d9ac047c1802da308a4bc2201',
-  ]
+  let shareUuidArr = ["64c683c28fec4951bff4e3483413ead4","5c1df40ddf8c4330b6bc086faabfbf0a","dbc88704608d4582b21c3f8ac003585b"]
+  let s = Math.floor((Math.random()*3))
+  let n = 0
+  n = Math.floor((Math.random()*shareUuidArr.length))
+  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
   for (let i = 0; i < cookiesArr.length; i++) {
-    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -130,6 +130,7 @@ async function run() {
       return
     }
     await takePostRequest('drawContent');
+	await takePostRequest('drawContent2')
     await $.wait(1000)
     $.openList = []
     $.allOpenCard = false
@@ -283,8 +284,12 @@ async function takePostRequest(type) {
         url = `${domain}/dingzhi/dz/openCard/activityContent`;
         body = `activityId=${$.activityId}&pin=${encodeURIComponent($.Pin)}&pinImg=${encodeURIComponent($.attrTouXiang)}&nick=${encodeURIComponent($.nickname)}&cjyxPin=&cjhyPin=&shareUuid=${$.shareUuid}`
         break;
-      case 'drawContent':
-        url = `${domain}/dingzhi/taskact/openCardcommon/drawContent`;
+    case 'drawContent':
+        url = `${domain}/dingzhi/taskact/common/drawContent`
+        body = `activityId=${$.activityId}&pin=${encodeURIComponent($.Pin)}`
+        break;
+    case 'drawContent2':
+        url = `${domain}/dingzhi/taskact/openCardcommon/drawContent`
         body = `activityId=${$.activityId}&pin=${encodeURIComponent($.Pin)}`
         break;
       case 'checkOpenCard':
@@ -372,7 +377,7 @@ async function takePostRequest(type) {
 async function dealReturn(type, data) {
   let res = ''
   try {
-    if(type != 'accessLogWithAD' || type != 'drawContent'){
+    if(type != 'accessLogWithAD' || type != 'drawContent'|| type != 'drawContent2'){
       if(data){
         res = JSON.parse(data);
       }
@@ -475,11 +480,14 @@ async function dealReturn(type, data) {
             $.openList = [...cardList,...cardList1,...cardList2,...cardList3]
             $.allOpenCard = res.data.allOpenCard || false
             $.openCardScore = res.data.score || 0
-            $.openCardScore2 = res.data.score2 || 0
+            $.openCardScore2 = res.data.score1 || 0
             $.openCardScore3 = res.data.score3 || 0
             $.openCardScore4 = res.data.score4 || 0
             $.openCardScore5 = res.data.score5 || 0
             $.drawScore = res.data.drawScore || 0
+			if(res.data.openCardBeanNum) console.log(`开卡获得:${res.data.openCardBeanNum}豆`)
+			if(res.data.assistBeanNum) console.log(`开卡获得:${res.data.assistBeanNum}豆`)
+			getAssistStatus(res.data.assistStatus)
           }else if(res.errorMessage){
             console.log(`${type} ${res.errorMessage || ''}`)
           }else{
@@ -504,6 +512,7 @@ async function dealReturn(type, data) {
                 msg = `${res.data.addBeanNum}京豆`
               }
               if(type == 'followShop'){
+				getAssistStatus(res.data.assistStatus)
                 title = '关注'
                 if(res.data.beanNumMember && res.data.assistSendStatus){
                   msg += ` 额外获得:${res.data.beanNumMember}京豆`
@@ -574,6 +583,7 @@ async function dealReturn(type, data) {
         break;
       case 'accessLogWithAD':
       case 'drawContent':
+	  case 'drawContent2':
         break;
       default:
         console.log(`${type}-> ${data}`);
@@ -681,7 +691,35 @@ function randomString(e) {
     n += t.charAt(Math.floor(Math.random() * a));
   return n
 }
-
+function getAssistStatus(id) {
+    switch (id) { // 1成功 0直接访问 2已经助力 3已为他人助力 12助力次数达到上限 -1失败
+    case 0:
+        break
+    case 1:
+        console.log('恭喜您为好友助力成功！')
+        if($.index != 1) $.assistCount++
+        $.assistStatus = true
+        break
+    case 2:
+        console.log('您已经为该好友助力过了！')
+        $.assistStatus = true
+        break
+    case 3:
+        console.log('您已经为其他好友助力过了！')
+        $.assistStatus = true
+        break
+    case 11:
+        console.log('今日助力次数已达上限，无法继续为他助力！')
+        $.assistStatus = true
+        break
+    case 12:
+        console.log('您活动期间助力次数已达上限，无法继续助力！')
+        $.assistStatus = true
+        break
+    case 66:
+        break
+    }
+}
 function joinShop() {
   if(!$.joinVenderId) return
   return new Promise(async resolve => {
