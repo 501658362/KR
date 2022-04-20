@@ -18,8 +18,8 @@ cron:35 13 18-24 4 *
 
 
 */
-let opencard_toShop = "false"
-let opencardKR = "false"
+let opencard_toShop = "true"
+let opencardKR = "true"
 const $ = new Env('4.18-4.24 发现精彩世界');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -36,8 +36,8 @@ if ($.isNode()) {
 } else {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
-opencard_toShop = $.isNode() ? (process.env.opencard_toShop122 ? process.env.opencard_toShop122 : `${opencard_toShop}`) : ($.getdata('opencard_toShop122') ? $.getdata('opencard_toShop122') : `${opencard_toShop}`);
-opencardKR = $.isNode() ? (process.env.opencardKR ? process.env.opencardKR : `${opencardKR}`) : ($.getdata('opencardKR') ? $.getdata('opencardKR') : `${opencardKR}`);
+// opencard_toShop = $.isNode() ? (process.env.opencard_toShop122 ? process.env.opencard_toShop122 : `${opencard_toShop}`) : ($.getdata('opencard_toShop122') ? $.getdata('opencard_toShop122') : `${opencard_toShop}`);
+// opencardKR = $.isNode() ? (process.env.opencardKR ? process.env.opencardKR : `${opencardKR}`) : ($.getdata('opencardKR') ? $.getdata('opencardKR') : `${opencardKR}`);
 allMessage = ""
 message = ""
 $.hotFlag = false
@@ -58,13 +58,14 @@ let authorCodeList = []
   $.activityId = "dz690f282607b5c03ea329yjkk2cwl"
   $.shareUuid = "e5d83b8a0a394f3faa55428637bd9c9b"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["e5d83b8a0a394f3faa55428637bd9c9b","d662ed3d80594f5faba8b24994d116cf","3ae0ceb083fe48628433391c7203943a"]
-  let s = Math.floor((Math.random()*3))
-  let n = 0
-  n = Math.floor((Math.random()*shareUuidArr.length))
-  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
+    authorCodeList = [
+        'c0783a306cbd49728b6229a6a8291110',
+        '1387e3a61c09407f88fbecb24c9122a9',
+        'acda1007f691407291c4e6d35e710d6e',
+    ]
   for (let i = 0; i < cookiesArr.length; i++) {
-    cookie = cookiesArr[i];
+      $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
+      cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
       $.index = i + 1;
