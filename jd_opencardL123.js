@@ -10,15 +10,15 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:11 16 17-23 4 *
+cron:21 17 17-23 4 *
 ============Quantumultx===============
 [task_local]
 #4.17-4.23 我的新家 超级配
-11 16 17-23 4 * jd_opencardL123.js, tag=4.17-4.23 我的新家 超级配, enabled=true
+21 17 17-23 4 * jd_opencardL123.js, tag=4.17-4.23 我的新家 超级配, enabled=true
 
 
 */
-let opencard_toShop = "false"
+let opencard_toShop = "true"
 const $ = new Env('4.17-4.23 我的新家 超级配');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -35,7 +35,6 @@ if ($.isNode()) {
 } else {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
-opencard_toShop = $.isNode() ? (process.env.opencard_toShop123 ? process.env.opencard_toShop123 : `${opencard_toShop}`) : ($.getdata('opencard_toShop123') ? $.getdata('opencard_toShop123') : `${opencard_toShop}`);
 allMessage = ""
 message = ""
 $.hotFlag = false
@@ -54,12 +53,13 @@ let authorCodeList = []
   $.activityId = "d1d801f6b58c49279abd443958d46eb4"
   $.shareUuid = "64c683c28fec4951bff4e3483413ead4"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["64c683c28fec4951bff4e3483413ead4","5c1df40ddf8c4330b6bc086faabfbf0a","dbc88704608d4582b21c3f8ac003585b"]
-  let s = Math.floor((Math.random()*3))
-  let n = 0
-  n = Math.floor((Math.random()*shareUuidArr.length))
-  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
+  authorCodeList = [
+    'a4f90a43af81436593e4657e2c808364',
+    'f88dd4fac3ba431b9ebcc093b7c306f7',
+    'f794f91d9ac047c1802da308a4bc2201',
+  ]
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
