@@ -12,11 +12,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:33 0 26-30,1-5 4,5 *
+cron:33 12 25-30,1-5 4,5 *
 ============Quantumultx===============
 [task_local]
 #4.25~5.5 大牌生活范 优价放心购
-33 0 26-30,1-5 4,5 * jd_opencardL125.js, tag=4.25~5.5 大牌生活范 优价放心购, enabled=true
+33 12 25-30,1-5 4,5 * jd_opencardL125.js, tag=4.25~5.5 大牌生活范 优价放心购, enabled=true
 
 */
 
@@ -55,14 +55,13 @@ let activityCookie =''
   $.activityId = "dzlhkkb2cf44b9b60ad047e6174aec"
   $.shareUuid = "e71233e3034149baabadf245a720c76c"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["e71233e3034149baabadf245a720c76c","7ff65d5271e840bab688c7127c9ad9f2","fdd5d3a0fb464103a920f745cc89692e"]
-  let s = Math.floor((Math.random()*3))
-  let n = 0
-  n = Math.floor((Math.random()*shareUuidArr.length))
-  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
-
-
+  authorCodeList = [
+    'e9d5cd99c08746999b75c9c0526b8b7a',
+    '8bed5a848a23498a88a8250f65baff37',
+    '5c62ebb19c994036822c4b901def3a07',
+  ]
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
