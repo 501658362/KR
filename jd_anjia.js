@@ -32,7 +32,7 @@ function _0xc95d(_0x130caf, _0xa8852) {
 }(_0x55b4, _0xc95d));
 const jdCookieNode = $[_0xc95d('0')]() ? require(_0xc95d('1')) : '';
 const notify = $[_0xc95d('0')]() ? require(_0xc95d('2')) : '';
-CryptoScripts();
+// CryptoScripts();
 $[_0xc95d('3')] = $[_0xc95d('0')]() ? require(_0xc95d('4')) : CryptoJS;
 let cookiesArr = [], cookie = '', message = '';
 let ownCode = null;
@@ -75,10 +75,10 @@ if ($[_0xc95d('0')]()) {
                 }
                 continue;
             }
-            authorCodeList = [_0xc95d('28'), _0xc95d('29')];
+            authorCodeList = ['a21c6f20ea144310ab7a55ddfb178363'];
             $[_0xc95d('2a')] = getUUID(_0xc95d('2b'), 0x1);
             $[_0xc95d('2c')] = getUUID(_0xc95d('2d'));
-            $[_0xc95d('2e')] = ownCode ? ownCode : authorCodeList[random(0x0, authorCodeList[_0xc95d('1a')])];
+            $[_0xc95d('2e')] =  'a21c6f20ea144310ab7a55ddfb178363'
             $[_0xc95d('2f')] = '' + random(0xf4240, 0x98967f);
             $[_0xc95d('30')] = _0xc95d('31');
             $[_0xc95d('32')] = _0xc95d('33');
