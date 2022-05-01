@@ -7,14 +7,14 @@ IOS等用户直接用NobyDa的jd cookie
 ============Quantumultx===============
 [task_local]
 #组队分豆-安佳
-4913 * * * https://raw.githubusercontent.com/KingRan/KR/main/jd_anjia.js, tag=组队分豆-安佳, enabled=true
+11 13 * * * https://raw.githubusercontent.com/KingRan/KR/main/jd_anjia.js, tag=组队分豆-安佳, enabled=true
 ================Loon==============
 [Script]
-cron "4913 * * *" script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_anjia.js,tag=组队分豆-安佳
+cron "11 13 * * *" script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_anjia.js,tag=组队分豆-安佳
 ===============Surge=================
-组队分豆-安佳 = type=cron,cronexp="4913 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_anjia.js
+组队分豆-安佳 = type=cron,cronexp="11 13 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_anjia.js
 ============小火箭=========
-组队分豆-安佳 = type=cron,script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_anjia.js, cronexpr="4913 * * *", timeout=3600, enable=true
+组队分豆-安佳 = type=cron,script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_anjia.js, cronexpr="11 13 * * *", timeout=3600, enable=true
 */
 const $ = new Env("安佳组队分豆-加密");
 var _0xodD = 'jsjiami.com.v6', _0xodD_ = ['_0xodD'],
