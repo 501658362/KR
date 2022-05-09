@@ -11,11 +11,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
   
-cron:50 11 9-19 5 *
+cron:50  18 9-19 5 *
 ============Quantumultx===============
 [task_local]
 #5.9-5.19 酒水会员盛典
-50 11 9-19 5 * jd_opencardL137.js, tag=5.9-5.19 酒水会员盛典, enabled=true
+50  18 9-19 5 * jd_opencardL137.js, tag=5.9-5.19 酒水会员盛典, enabled=true
 
 */
 
@@ -52,12 +52,13 @@ let cookies = []
   $.activityId = "dzf520f8968d004430bad05d06724"
   $.shareUuid = "1666df5397564f9b8721c7b346831939"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/drinkcategory/piecetoge1/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["1666df5397564f9b8721c7b346831939","ea9fdc1f6e43422586f6cfecb0040a89","695ba80898cc4e2d86faa37c1b77b91c"]
-  let s = Math.floor((Math.random()*3))
-  let n = 0
-  n = Math.floor((Math.random()*shareUuidArr.length))
-  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
+  authorCodeList = [
+    'd3b645561be54733be1cb236f0ee5f67',
+    '59c48acd97034e0793d52c83c3572211',
+    '496c43eed219467995506dc7927f14f8',
+  ]
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -216,10 +217,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 2000 + 5000, 10))
       if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
       if($.index % 3 == 0) await $.wait(parseInt(Math.random() * 5000 + 18000, 10))

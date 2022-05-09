@@ -19,7 +19,7 @@
 
 [task_local]
 #5.1-5.20 雅诗兰黛奢雅邀请入会有礼
-41 10,21 5-20/2 5 * jd_opencardL136.js, tag=5.1-5.20 雅诗兰黛奢雅邀请入会有礼, enabled=true
+41 1,18 5-20/2 5 * jd_opencardL136.js, tag=5.1-5.20 雅诗兰黛奢雅邀请入会有礼, enabled=true
 
 */
 const $ = new Env('5.1-5.20 雅诗兰黛奢雅邀请入会有礼');
@@ -56,12 +56,13 @@ let activityCookie =''
     $.activityId = "2205100037674501"
     $.shareUuid = "1c782aff18b44998a1c6b15c456a287b"
     console.log(`入口:\nhttps://lzkjdz-isv.isvjcloud.com/esteelauder/inviteNew/activityPage?activityId=2205100037674501&inviterUuid=${$.shareUuid}`)
-	let shareUuidArr = ["1c782aff18b44998a1c6b15c456a287b","425ce882861b49729bed944be311da85"]
-	let s = Math.floor((Math.random()*2))
-	let n = 0
-	n = Math.floor((Math.random()*shareUuidArr.length))
-	$.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
+    authorCodeList = [
+        '65348495913d4ed9ab70c19913623444',
+        '1ba157e331ae41f5a8e431c50f270b2e',
+        '6a31f17a1b8040f38de1c6c7131ae585',
+    ]
     for (let i = 0; i < cookiesArr.length; i++) {
+        $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
         cookie = cookiesArr[i];
         if (cookie) {
             $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -183,10 +184,7 @@ async function run() {
         if ($.helpCount >= 10 * 3) $.hasEnd = true
         console.log($.actorUuid)
         console.log(`当前助力:${$.shareUuid}`)
-        if ($.index == 1) {
-            $.shareUuid = $.actorUuid
-            console.log(`后面的号都会助力:${$.shareUuid}`)
-        }
+
         await $.wait(parseInt(Math.random() * 2000 + 5000, 10))
             if ($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
             if ($.index % 3 == 0) await $.wait(parseInt(Math.random() * 5000 + 50000, 10))
