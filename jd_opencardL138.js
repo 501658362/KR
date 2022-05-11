@@ -23,11 +23,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:50 0 10-31 5 *
+cron:11 10 10-31 5 *
 ============Quantumultx===============
 [task_local]
 #5.1-5.31 安佳 邀新有礼
-50 0 10-31 5 * jd_opencardL138.js, tag=5.1-5.31 安佳 邀新有礼, enabled=true
+11 10 10-31 5 * jd_opencardL138.js, tag=5.1-5.31 安佳 邀新有礼, enabled=true
 
 */
 
