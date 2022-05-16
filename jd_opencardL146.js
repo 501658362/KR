@@ -12,11 +12,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:15 21 15-23 5 *
+cron:15 23 15-23 5 *
 ============Quantumultx===============
 [task_local]
 #5.16-5.23 情暖五月 以爱之名
-15 21 15-23 5 * jd_opencardL146.js, tag=5.16-5.23 情暖五月 以爱之名, enabled=true
+15 23 15-23 5 * jd_opencardL146.js, tag=5.16-5.23 情暖五月 以爱之名, enabled=true
 
 */
 
@@ -51,16 +51,17 @@ let activityCookie =''
     return;
   }
   $.activityId = "dzlhkk17e740478a664c23f2c5580a"
-  $.shareUuid = "30160d6ddfae4a12bd61dcce516dab21"
+  $.shareUuid = "088f0fdff7c042a3b2bb23cd4ffb16d1"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["30160d6ddfae4a12bd61dcce516dab21","889ca65901cc4bcf89a46b256c32e219","c0da5fdd6eb84371bd94f5d75d40832b"]
+  let shareUuidArr = ["088f0fdff7c042a3b2bb23cd4ffb16d1","7a1a46e0a62844dc86c9042322f5b702","9c0db11ff784438bafd1ec0e81e057dc"]
   let s = Math.floor((Math.random()*3))
   let n = 0
-  n = Math.floor((Math.random()*shareUuidArr.length))
-  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
+
 
 
   for (let i = 0; i < cookiesArr.length; i++) {
+    n = Math.floor((Math.random()*shareUuidArr.length))
+    $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -220,10 +221,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
       if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
       if($.index % 3 == 0) await $.wait(parseInt(Math.random() * 5000 + 30000, 10))
