@@ -13,12 +13,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:0 2 17-31,1 5,6 *
+cron:11 10 17-31,1 5,6 *
 ============Quantumultx===============
 [task_local]
 #5.17-6.1 爱上夏日 大牌献礼
-0 2 17-31,1 5,6 * jd_opencardL147.js, tag=5.17-6.1 爱上夏日 大牌献礼, enabled=true
-
+11 10 17-31,1 5,6 * jd_opencardL147.js, tag=5.17-6.1 爱上夏日 大牌献礼, enabled=true
 */
 let guaopencard_addSku = 'true'
 let guaopencard = 'true'
@@ -349,10 +348,11 @@ $['shareUuid'] = _0x5093('‫2', 'q6FU');
 console[_0x7493(_0x5093('‫3', '9ut)'), _0x5093('‫4', 'zQkA'))]('入口:\x0ahttps://lzdz-isv.isvjcloud.com/dingzhi/bd/common/activity?activityId=' + $[_0x5093('‮5', 'lYNg')] + _0x7493(_0x5093('‫6', 'lYNg'), _0x5093('‮7', 'RHtO')) + $[_0x7493('‮67', _0x5093('‫8', 'mAVs'))]);
 let shareUuidArr = [_0x5093('‮9', 'zQkA'), _0x5093('‫a', '6s@2')];;
 _0xodd = 'jsjiami.com.v6';
-	  let s = Math.floor((Math.random()*2))
-	  let n = 0
-	  n = Math.floor((Math.random()*shareUuidArr.length))
-	  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
+    authorCodeList = [
+        '8899e1e5e237435289d3240860630096',
+        '727dd14fddc641a694bcf9f3a5981735',
+        '09d35801644a4bfcbdbcab5604b34629',
+    ]
     for (let _0x3a18a2 = 0x0; _0x370591[_0x7493('‫78', 'YlUp')](_0x3a18a2, _0x3dc5f9[_0x7493('‫79', '05@W')]); _0x3a18a2++) {
         if (_0x370591[_0x7493('‮7a', 'y9vi')](_0x370591['Llrdx'], _0x370591['Llrdx'])) {
             _0x370591[_0x7493('‮7b', ']yq4')](resolve);
@@ -363,6 +363,7 @@ _0xodd = 'jsjiami.com.v6';
                     console[_0x7493('‮7d', '6NA$')](_0x370591[_0x7493('‮7e', 'I0dZ')]);
                     allMessage += _0x7493('‮7f', 'vexo') + $[_0x7493('‫80', 'EjNH')] + _0x7493('‮81', 'yVWK');
                 } else {
+                    $.shareUuid = authorCodeList[Math.floor((Math.random() * authorCodeList.length))]
                     $[_0x7493('‫82', 'cDki')] = _0x370591[_0x7493('‫83', '05@W')](decodeURIComponent, _0x36cc1c[_0x7493('‮84', '5HnY')](/pt_pin=([^; ]+)(?=;?)/) && _0x36cc1c[_0x7493('‫85', 'yVWK')](/pt_pin=([^; ]+)(?=;?)/)[0x1]);
                     $[_0x7493('‮86', '#@MW')] = _0x370591[_0x7493('‫87', 'KjN!')](_0x3a18a2, 0x1);
                     message = '';
@@ -724,14 +725,7 @@ async function _0x447d39() {
             }
             console[_0x7493('‫13c', '8d]U')]($[_0x7493('‮13d', 'QQUr')]);
             console[_0x7493('‫13e', 'BY5)')](_0x7493('‮13f', 'PDa5') + $[_0x7493('‮67', 'xPdR')]);
-            if (_0x554a7f[_0x7493('‫140', 'Uqi4')]($['index'], 0x1)) {
-                if (_0x554a7f[_0x7493('‫141', 'EjNH')](_0x554a7f[_0x7493('‫142', '*iPT')], _0x554a7f['oLTcl'])) {
-                    $[_0x7493('‮143', 'yVWK')] = $['actorUuid'];
-                    console['log'](_0x7493('‮144', '8d]U') + $['shareUuid']);
-                } else {
-                    console[_0x7493('‮cd', 'YKRZ')](t['taskname'] + ' ' + t['curNum'] + '/' + t[_0x7493('‫145', '2SR9')] + _0x7493('‫146', 'E)9A') + t[_0x7493('‮147', 'OeCh')][_0x7493('‮148', '#@MW')](';', ' ')['replace'](/chance=(\d+)/, _0x554a7f['dUDXC'])[_0x7493('‫149', 'xPdR')](/bean=(\d+)/, _0x554a7f['LJHxQ'])[_0x7493('‮14a', '6NA$')](/score=(\d+)/, _0x554a7f[_0x7493('‫14b', 'xPdR')]));
-                }
-            }
+
             await $[_0x7493('‮14c', 'EjNH')](_0x554a7f[_0x7493('‮14d', 'y$aM')](parseInt, _0x554a7f[_0x7493('‮14e', ']yq4')](_0x554a7f[_0x7493('‫14f', 'y9vi')](Math[_0x7493('‫150', 'vexo')](), 0x3e8), 0x1388), 0xa));
             if (_0x3b58bd) await $['wait'](_0x554a7f[_0x7493('‫151', '7Bf!')](parseInt, _0x554a7f[_0x7493('‮152', 'BY5)')](_0x554a7f[_0x7493('‮153', '#@MW')](Math[_0x7493('‮72', '*iPT')](), 0x3e8), 0x1388), 0xa));
             if (guaopenwait) {
