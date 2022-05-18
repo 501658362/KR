@@ -50,16 +50,16 @@ let activityCookie =''
     return;
   }
   $.activityId = "dzlhkk0c046a602d347bea3e27b82f5"
-  $.shareUuid = "a8843144afd347f3b6bd1964f423deca"
+  $.shareUuid = "6610b8af0c2e4eb6a76e6cc3760a85e3"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["a8843144afd347f3b6bd1964f423deca","4d70c2cf74fa49a58e3b932f827db79e","ce0abff04a9d495e99e5577375f62f44"]
+  let shareUuidArr = ["6610b8af0c2e4eb6a76e6cc3760a85e3","401fff90b2134b54a59c3b0a7efc3dcf","730f45dcbed141b79de3ad9bf92afd25"]
   let s = Math.floor((Math.random()*3))
   let n = 0
-  n = Math.floor((Math.random()*shareUuidArr.length))
-  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
 
 
   for (let i = 0; i < cookiesArr.length; i++) {
+  n = Math.floor((Math.random()*shareUuidArr.length))
+  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -219,10 +219,7 @@ async function run() {
     }
     console.log($.actorUuid)
     console.log(`当前助力:${$.shareUuid}`)
-    if($.index == 1){
-      $.shareUuid = $.actorUuid
-      console.log(`后面的号都会助力:${$.shareUuid}`)
-    }
+
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
       if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
       if($.index % 3 == 0) await $.wait(parseInt(Math.random() * 5000 + 30000, 10))
