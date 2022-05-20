@@ -56,8 +56,8 @@ let activityCookie =''
   let shareUuidArr = ["ba16303c0d8b4df0b8d276647a646f6d","b7ad788998fd47789801ffe50e503afe","ff09bae14db145e0b04e9bac058f9c7c"]
   let s = Math.floor((Math.random()*3))
   let n = 0
-  n = Math.floor((Math.random()*shareUuidArr.length))
   for (let i = 0; i < cookiesArr.length; i++) {
+  n = Math.floor((Math.random()*shareUuidArr.length))
   $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
     cookie = cookiesArr[i];
     if (cookie) {
@@ -146,11 +146,11 @@ async function run() {
 			  console.log('重新开卡')
 			  await joinShop()
 		  }
-          await $.wait(parseInt(Math.random() * 2000 + 2000, 10))
+          await $.wait(parseInt(Math.random() * 2000 + 1000, 10))
           await takePostRequest('activityContent');
           await takePostRequest('drawContent');
           await takePostRequest('checkOpenCard');
-          await $.wait(parseInt(Math.random() * 3000 + 2000, 10))
+          await $.wait(parseInt(Math.random() * 3000 + 1000, 10))
         }
       }
     }else{
@@ -159,12 +159,12 @@ async function run() {
     if(!$.followShop && !$.outFlag){
       flag = true
       await takePostRequest('followShop');
-      await $.wait(parseInt(Math.random() * 2000 + 2000, 10))
+      await $.wait(parseInt(Math.random() * 2000 + 1000, 10))
     }
     if(!$.addSku && !$.outFlag){
         flag = true
         await takePostRequest('addSku');
-        await $.wait(parseInt(Math.random() * 1000 + 2000, 10))
+        await $.wait(parseInt(Math.random() * 1000 + 1000, 10))
 
     }
     $.log("关注频道: " + $.followPeony)
@@ -172,7 +172,7 @@ async function run() {
       flag = true
       await takePostRequest('followPeony');
     }
-
+      
     if(flag){
       await takePostRequest('activityContent');
     }
@@ -184,13 +184,13 @@ async function run() {
         await takePostRequest('抽奖');
         if($.runFalag == false) break
         if(Number(count) <= 0) break
-        if(m >= 10){
+        if(m >= 1){
           console.log("抽奖太多次，多余的次数请再执行脚本")
           break
         }
         await $.wait(parseInt(Math.random() * 2000 + 2000, 10))
       }
-
+    
     await $.wait(parseInt(Math.random() * 1000 + 2000, 10))
     await takePostRequest('getDrawRecordHasCoupon');
     await takePostRequest('getShareRecord');
@@ -202,9 +202,9 @@ async function run() {
     console.log(`当前助力:${$.shareUuid}`)
 
     await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
-    if(flag) await $.wait(parseInt(Math.random() * 1000 + 10000, 10))
+    if(flag) await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
       if($.index % 3 == 0) console.log('休息半分钟，别被黑ip了\n可持续发展')
-      if($.index % 3 == 0) await $.wait(parseInt(Math.random() * 5000 + 30000, 10))
+      if($.index % 3 == 0) await $.wait(parseInt(Math.random() * 5000 + 10000, 10))
   } catch (e) {
     console.log(e)
   }
@@ -248,7 +248,7 @@ async function takePostRequest(type) {
         break;
       case 'checkOpenCard':
         url = `${domain}/dingzhi/may/childrenWear/initOpenCard`;
-        body = `activityId=${$.activityId}&pin=${encodeURIComponent($.Pin)}&actorUuid=${$.actorUuid}&shareUuid=${$.shareUuid}`
+        body = `activityId=${$.activityId}&pin=${encodeURIComponent($.Pin)}&shareUuid=${$.shareUuid}`
         break;
       case '报名':
         url = `${domain}/dingzhi/may/childrenWear/saveTask`;
@@ -303,7 +303,7 @@ async function takePostRequest(type) {
           taskValue = $.visitSkuValue || 5
         }else if(type == 'toShop'){
           taskType = 12
-          taskValue = $.toShopValue || 74956
+          taskValue = $.toShopValue || 74956 
         }else if(type == 'addSku'){
           taskType = 21
           taskValue = $.addSkuValue || 21
@@ -360,7 +360,7 @@ async function takePostRequest(type) {
       })
     })
   }
-
+  
 async function dealReturn(type, data) {
   let res = ''
   try {
