@@ -346,13 +346,13 @@ function _0x53cb(_0x40c726, _0x58932d) {
 $[_0x53cb('‮0', 'XE4L')] = '90322051701';
 $[_0x53cb('‫1', '*qmN')] = _0x53cb('‫2', 'hb5t');
 console[_0x7493(_0x53cb('‫3', 'thk&'), 'Jm)D')](_0x53cb('‫4', '@DMF') + $[_0x53cb('‮5', 'hb5t')] + _0x7493(_0x53cb('‫6', 'hCCn'), _0x53cb('‫7', 'WaNh')) + $[_0x7493('‮67', _0x53cb('‫8', 'Szdb'))]);
-let shareUuidArr = [_0x53cb('‫2', 'hb5t'), _0x53cb('‮9', 'QHZT')];;
+let shareUuidArr = ['842cbad6e7144454ac1bea42cf7763aa','29770fdadb574072b5adccb8d0f3acd1','f6fd05d3e5394481860bb5915f3ba47f'];;
 _0xod8 = 'jsjiami.com.v6';
 	  let s = Math.floor((Math.random()*2))
 	  let n = 0
+    for (let _0x3a18a2 = 0x0; _0x370591[_0x7493('‫78', 'YlUp')](_0x3a18a2, _0x3dc5f9[_0x7493('‫79', '05@W')]); _0x3a18a2++) {
 	  n = Math.floor((Math.random()*shareUuidArr.length))
 	  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
-    for (let _0x3a18a2 = 0x0; _0x370591[_0x7493('‫78', 'YlUp')](_0x3a18a2, _0x3dc5f9[_0x7493('‫79', '05@W')]); _0x3a18a2++) {
         if (_0x370591[_0x7493('‮7a', 'y9vi')](_0x370591['Llrdx'], _0x370591['Llrdx'])) {
             _0x370591[_0x7493('‮7b', ']yq4')](resolve);
         } else {

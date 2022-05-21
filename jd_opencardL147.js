@@ -347,13 +347,14 @@ function _0x5093(_0x1bfbd5, _0x587622) {
 $[_0x5093('‫0', 'U7b]')] = _0x5093('‮1', 'a9Dh');
 $['shareUuid'] = _0x5093('‫2', 'q6FU');
 console[_0x7493(_0x5093('‫3', '9ut)'), _0x5093('‫4', 'zQkA'))]('入口:\x0ahttps://lzdz-isv.isvjcloud.com/dingzhi/bd/common/activity?activityId=' + $[_0x5093('‮5', 'lYNg')] + _0x7493(_0x5093('‫6', 'lYNg'), _0x5093('‮7', 'RHtO')) + $[_0x7493('‮67', _0x5093('‫8', 'mAVs'))]);
-let shareUuidArr = [_0x5093('‮9', 'zQkA'), _0x5093('‫a', '6s@2')];;
+let shareUuidArr = ['09d35801644a4bfcbdbcab5604b34629','727dd14fddc641a694bcf9f3a5981735','8899e1e5e237435289d3240860630096'];;
 _0xodd = 'jsjiami.com.v6';
 	  let s = Math.floor((Math.random()*2))
 	  let n = 0
-	  n = Math.floor((Math.random()*shareUuidArr.length))
-	  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
+
     for (let _0x3a18a2 = 0x0; _0x370591[_0x7493('‫78', 'YlUp')](_0x3a18a2, _0x3dc5f9[_0x7493('‫79', '05@W')]); _0x3a18a2++) {
+        n = Math.floor((Math.random()*shareUuidArr.length))
+        $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
         if (_0x370591[_0x7493('‮7a', 'y9vi')](_0x370591['Llrdx'], _0x370591['Llrdx'])) {
             _0x370591[_0x7493('‮7b', ']yq4')](resolve);
         } else {
