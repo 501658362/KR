@@ -1,7 +1,7 @@
 /*
 [task_local]
 #618个护抽奖机
-10 7 * * * jd_618cj.js, tag=618个护抽奖机, enabled=true
+10 12 * * * jd_618cj.js, tag=618个护抽奖机, enabled=true
  */
 const $ = new Env('618个护抽奖机');
 const notify = $.isNode() ? require('./sendNotify') : '';
