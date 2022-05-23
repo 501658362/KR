@@ -1,3 +1,4 @@
+process.env.JD_19E="true"
 if (process.env.JD_19E != "true") {
     console.log('\n默认不运行,设置变量export JD_19E="true"来运行\n')
     return
@@ -6,7 +7,7 @@ if (process.env.JD_19E != "true") {
 /*
 
 建议手动先点开一次
-33 0,6-23/2 * * * jd_19E.js
+08 0,6-23/2 * * * jd_19E.js
 
 */
 const $ = new Env('热爱奇旅');
