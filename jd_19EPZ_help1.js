@@ -5,7 +5,7 @@ if (process.env.JD_19E != "true") {
 }
 
 /*
-11 20 * * * jd_19EPZ_help.js
+11 21 * * * jd_19EPZ_help.js
 
 变量：
 export PZ="助力码"
