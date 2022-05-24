@@ -30,7 +30,7 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 
-$.inviteId  = [];
+$.inviteId  = ['PKASTT0146awsCVtKrAqDaQCTdWmYaRzTQjeQOc','PKASTT0146awsCVtKrAqDaQCTdWmYaRzTQjeQOc','PKASTT0146awsCVtKrAqDaQCTdWmYaRzTQjeQOc','PKASTT0146awsCVtKrAqDaQCTdWmYaRzTQjeQOc'];
 $.inviteId.push(inviteId1);
 !(async () => {
   if (!cookiesArr[0]) {
