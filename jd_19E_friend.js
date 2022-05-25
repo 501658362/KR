@@ -1,7 +1,4 @@
-if (process.env.JD_19E != "true") {
-    console.log('\n默认不运行,安全性自行衡量,设置变量export JD_19E="true"来运行\n')
-    return
-}
+
 /*
 建议手动先点开一次
 20 0,8 * * * jd_19E_friend.js
