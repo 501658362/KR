@@ -42,8 +42,13 @@ let groups = []
             $.isLogin = true;
             $.nickName = '';
             message = '';
+            await TotalBean();
             console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
             //   await shareCodesFormat()
+            if (!$.isLogin) {
+                $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+                continue
+            }
             $.newShareCodes = []
 			await get_secretp()
 			if ($.huobao == false) {
@@ -152,7 +157,45 @@ function transform(str) {
     }
     return REQUEST
 }
-
+function TotalBean() {
+    return new Promise(resolve => {
+        const options = {
+            url: "https://me-api.jd.com/user_new/info/GetJDUserInfoUnion",
+            headers: {
+                "Host": "me-api.jd.com",
+                "Accept": "*/*",
+                "User-Agent": "ScriptableWidgetExtension/185 CFNetwork/1312 Darwin/21.0.0",
+                "Accept-Language": "zh-CN,zh-Hans;q=0.9",
+                "Accept-Encoding": "gzip, deflate, br",
+                "Cookie": cookie
+            }
+        }
+        $.get(options, (err, resp, data) => {
+            try {
+                if (err) {
+                    $.logErr(err)
+                } else {
+                    if (data) {
+                        data = JSON.parse(data);
+                        if (data['retcode'] === "1001") {
+                            $.isLogin = false; //cookie过期
+                            return;
+                        }
+                        if (data['retcode'] === "0" && data.data && data.data.hasOwnProperty("userInfo")) {
+                            $.nickName = data.data.userInfo.baseInfo.nickname;
+                        }
+                    } else {
+                        console.log('京东服务器返回空数据');
+                    }
+                }
+            } catch (e) {
+                $.logErr(e, resp)
+            } finally {
+                resolve()
+            }
+        })
+    })
+}
 function get_secretp() {
     let body = {};
     return new Promise((resolve) => {
