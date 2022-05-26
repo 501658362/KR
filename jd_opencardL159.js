@@ -11,11 +11,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:40 13 26-31,1-19 5,6 *
+cron:40 15 26-31,1-19 5,6 *
 ============Quantumultx===============
 [task_local]
 #5.23-6.19 母婴“会”聚 幸运连击
-40 13 26-31,1-19 5,6 * jd_opencardL159.js, tag=5.23-6.19 母婴“会”聚 幸运连击, enabled=true
+40 15 26-31,1-19 5,6 * jd_opencardL159.js, tag=5.23-6.19 母婴“会”聚 幸运连击, enabled=true
 
 */
 const $ = new Env('5.23-6.19 母婴“会”聚 幸运连击');
@@ -47,14 +47,15 @@ let activityCookie =''
         return;
     }
     $.activityId = "dz789550734dfb88a1c68efe2a625c"
-    $.shareUuid = "d8be14c9511840ccbc4d55d860478d06"
+    $.shareUuid = "023aec8549b049de9a8cbc768248aca7"
     console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/flyg/active/activity/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-	let shareUuidArr = ["d8be14c9511840ccbc4d55d860478d06","96c5181f2911413aa0e60fd32da39e3d","3d9331c39ebb462b92e95ecbd2db0866"]
+	let shareUuidArr = ["023aec8549b049de9a8cbc768248aca7","965126ea70af43309be912997a029c83","fcc24b4930e04e8e98e7776f936cc6ee"]
 	let s = Math.floor((Math.random()*3))
 	let n = 0
-	n = Math.floor((Math.random()*shareUuidArr.length))
-	$.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
+
     for (let i = 0; i < cookiesArr.length; i++) {
+        n = Math.floor((Math.random()*shareUuidArr.length))
+        $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
         cookie = cookiesArr[i];
         if (cookie) {
             $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
