@@ -180,8 +180,8 @@ async function travel() {
             }
             const collectAutoScore = await doApi("collectAutoScore", null, null, true)
             collectAutoScore.produceScore && formatMsg(collectAutoScore.produceScore, "定时收集")
-            console.log("\n去做主App任务\n")
-            await doAppTask()
+            // console.log("\n去做主App任务\n")
+            // await doAppTask()
 
             //console.log("\n去看看战队\n")
             const pkHomeData = await doApi("pk_getHomeData")
@@ -238,16 +238,16 @@ async function travel() {
             console.log(e)
         }
 
-        try {
-            console.log("\n去做金融App任务\n")
-            $.sdkToken = "jdd01" + randomUUID({
-                formatData: "X".repeat(103),
-                charArr: [...Array(36).keys()].map(k => k.toString(36).toUpperCase())
-            }) + "0123456"
-            await doJrAppTask()
-        } catch (e) {
-            console.log(e)
-        }
+        // try {
+            // console.log("\n去做金融App任务\n")
+            // $.sdkToken = "jdd01" + randomUUID({
+            //     formatData: "X".repeat(103),
+            //     charArr: [...Array(36).keys()].map(k => k.toString(36).toUpperCase())
+            // }) + "0123456"
+            // await doJrAppTask()
+        // } catch (e) {
+        //     console.log(e)
+        // }
     }
 
     try {
