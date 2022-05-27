@@ -50,32 +50,32 @@ let groups = []
                 continue
             }
             $.newShareCodes = []
-            await get_secretp()
-            if ($.huobao == false) {
-                console.log(`火爆`); continue;
-            }
+			await get_secretp()
+			if ($.huobao == false) {
+			console.log(`火爆`); continue;
+			}
             await promote_collectAtuoScore() //定时领取
             let res
-            //此处修改组队人数 默认前7组队
+			//此处修改组队人数 默认前7组队
             if (i <= 7 ){
-                res = await promote_pk_getHomeData()
-                if (res.data.result.groupInfo.memberList) {
-                    let memberCount = res.data.result.groupInfo.memberList.length
-                    console.log('当前队伍有', memberCount, '人')
-                    let groupJoinInviteId = ""
-
-                    if (memberCount < 30) {
-                        groupJoinInviteId = res.data.result.groupInfo.groupJoinInviteId
-                        res = await getEncryptedPinColor()
-                        groups.push({mpin: res.result, groupJoinInviteId: groupJoinInviteId})
-                        console.log('队伍未满:', groupJoinInviteId)
-                    }
-                }
+               res = await promote_pk_getHomeData()
+               if (res.data.result.groupInfo.memberList) {
+                 let memberCount = res.data.result.groupInfo.memberList.length
+                 console.log('当前队伍有', memberCount, '人')
+                 let groupJoinInviteId = ""
+               
+                 if (memberCount < 30) {
+                   groupJoinInviteId = res.data.result.groupInfo.groupJoinInviteId
+                   res = await getEncryptedPinColor()
+                   groups.push({mpin: res.result, groupJoinInviteId: groupJoinInviteId})
+                   console.log('队伍未满:', groupJoinInviteId)
+                 }
+               }
             }
-            try {
-                res = await promote_getTaskDetail()
+			try {
+				res = await promote_getTaskDetail()
                 await promote_sign()
-                do {
+				do {
                     var ret = await promote_raise()
                     await $.wait(1000)
                 } while (ret)
@@ -84,63 +84,63 @@ let groups = []
             }
         }
     }
-    try{
+	try{
         for (let i = 0; i < cookiesArr.length; i++) {
-            if (cookiesArr[i]) {
-                cookie = cookiesArr[i];
-                $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
-                $.index = i + 1;
-                $.isLogin = true;
-                $.nickName = '';
-                message = '';
-                console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
-                await get_secretp()
-                if ($.huobao == false) {
-                    console.log(`火爆`); continue;
-                }
-                await $.wait(1000)
-                let res
-                // for (let s = 0; s < inviteId.length; s++) {
-                // console.log(`\n开始助力 【${inviteId[s]}】`)
-                // res = await help(inviteId[s])
-                // if ( res['data']['bizCode'] === 0) {
-                // console.log('助力成功,获得：', parseFloat(res.data.result.acquiredScore), '金币')
-                // if (res.data.result?.redpacket?.value)
-                // console.log('🧧', parseFloat(res.data.result?.redpacket?.value))
-                console.log('助力结果：'+res.data.bizMsg)
-                // } else if (res.data.bizMsg === '助力次数用完啦~') { console.log(res.data.bizMsg);break}
-                // else if (res.data.bizMsg === '好友人气爆棚，不需要助力啦~') { console.log(res.data.bizMsg)}
-                // else {console.log(res.data.bizMsg)}
-                // await $.wait(1000)
-                // }
+             if (cookiesArr[i]) {
+                 cookie = cookiesArr[i];
+                 $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
+                 $.index = i + 1;
+                 $.isLogin = true;
+                 $.nickName = '';
+                 message = '';
+                 console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);  
+                 await get_secretp() 
+				if ($.huobao == false) {
+				console.log(`火爆`); continue;
+				}
+                 await $.wait(1000)
+                 let res
+				 // for (let s = 0; s < inviteId.length; s++) {
+                     // console.log(`\n开始助力 【${inviteId[s]}】`)
+                     // res = await help(inviteId[s])
+                     // if ( res['data']['bizCode'] === 0) {
+                             // console.log('助力成功,获得：', parseFloat(res.data.result.acquiredScore), '金币')
+                               // if (res.data.result?.redpacket?.value)
+                                 // console.log('🧧', parseFloat(res.data.result?.redpacket?.value))
+                                 // console.log('助力结果：'+res.data.bizMsg)
+                     // } else if (res.data.bizMsg === '助力次数用完啦~') { console.log(res.data.bizMsg);break}
+                    // else if (res.data.bizMsg === '好友人气爆棚，不需要助力啦~') { console.log(res.data.bizMsg)}
+                    // else {console.log(res.data.bizMsg)}
+                     // await $.wait(1000)
+                 // }  
 
-                res = await promote_pk_getHomeData()
-                if (res.data.result.groupInfo.memberList) {
-                    let memberCount = res.data.result.groupInfo.memberList.length
-                    if (memberCount === 1) {
-                        for (let group of groups) {
-                            console.log('\n开始加入队伍：', group.groupJoinInviteId)
-                            res = await collectFriendRecordColor(group.mpin)
-                            res = await promote_pk_joinGroup(group.groupJoinInviteId)
-                            await $.wait(3000)
-                            if (res.data.bizCode === 0) {
-                                console.log('加入队伍成功')
-                                break
-                            } else {
-                                console.log(res.data.bizMsg)
-                            }
-                            res = await promote_pk_getHomeData()
-                        }
-                    }
-                    await $.wait(3000)
-                }
-            }
-        }
-    } catch (e) {
-        $.log(`❌ ${$.name}, 失败! 原因: `, e)
-    }
+                 res = await promote_pk_getHomeData()
+                 if (res.data.result.groupInfo.memberList) {
+                   let memberCount = res.data.result.groupInfo.memberList.length
+                   if (memberCount === 1) {
+                     for (let group of groups) {
+                       console.log('\n开始加入队伍：', group.groupJoinInviteId)
+                       res = await collectFriendRecordColor(group.mpin)
+                       res = await promote_pk_joinGroup(group.groupJoinInviteId)
+                       await $.wait(3000)
+                       if (res.data.bizCode === 0) {
+                         console.log('加入队伍成功')
+                         break
+                       } else {
+                         console.log(res.data.bizMsg)
+                       }
+                       res = await promote_pk_getHomeData()
+                     }
+                   }
+                   await $.wait(3000)
+                 }
+             }
+       }
+     } catch (e) {
+         $.log(`❌ ${$.name}, 失败! 原因: `, e)
+     }       
 })()
-    .catch((e) => {
+.catch((e) => {
         $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
     })
     .finally(() => {
@@ -151,51 +151,13 @@ function transform(str) {
     var REQUEST = new Object,
         data = str.slice(str.indexOf("?") + 1, str.length - 1),
         aParams = data.substr(1).split("&");
-    for (i = 0; i < aParams.length; i++) {
-        var aParam = aParams[i].split("=");
+    for (i = 0; i < aParams.length; i++) {　　
+        var aParam = aParams[i].split("=");　　
         REQUEST[aParam[0]] = aParam[1]
     }
     return REQUEST
 }
-function TotalBean() {
-    return new Promise(resolve => {
-        const options = {
-            url: "https://me-api.jd.com/user_new/info/GetJDUserInfoUnion",
-            headers: {
-                "Host": "me-api.jd.com",
-                "Accept": "*/*",
-                "User-Agent": "ScriptableWidgetExtension/185 CFNetwork/1312 Darwin/21.0.0",
-                "Accept-Language": "zh-CN,zh-Hans;q=0.9",
-                "Accept-Encoding": "gzip, deflate, br",
-                "Cookie": cookie
-            }
-        }
-        $.get(options, (err, resp, data) => {
-            try {
-                if (err) {
-                    $.logErr(err)
-                } else {
-                    if (data) {
-                        data = JSON.parse(data);
-                        if (data['retcode'] === "1001") {
-                            $.isLogin = false; //cookie过期
-                            return;
-                        }
-                        if (data['retcode'] === "0" && data.data && data.data.hasOwnProperty("userInfo")) {
-                            $.nickName = data.data.userInfo.baseInfo.nickname;
-                        }
-                    } else {
-                        console.log('京东服务器返回空数据');
-                    }
-                }
-            } catch (e) {
-                $.logErr(e, resp)
-            } finally {
-                resolve()
-            }
-        })
-    })
-}
+
 function get_secretp() {
     let body = {};
     return new Promise((resolve) => {
@@ -208,14 +170,14 @@ function get_secretp() {
                 } else {
                     if (safeGet(data)) {
                         data = JSON.parse(data);
-                        $.huobao = data.data.success
+						$.huobao = data.data.success
                         if (data.code == 0) {
                             if (data.data && data.data.bizCode === 0) {
                                 secretp = data.data.result.homeMainInfo.secretp
-
-                            }
-                        }
-
+								
+                          }
+                        } 
+						
                     }
                 }
             } catch (e) {
@@ -304,12 +266,12 @@ function promote_getTaskDetail() {
                         data = JSON.parse(data);
                         if (data.code === 0) {
                             if (data.data && data['data']['bizCode'] === 0) {
-                                inviteIdss = data.data.result.inviteId
-                                if (!inviteIdss) {
+								inviteIdss = data.data.result.inviteId
+								if (!inviteIdss) {
                                     console.log("黑号")
                                     resolve("")
                                 }
-                                console.log(inviteIdss)
+								console.log(inviteIdss)
                                 inviteId.push(data.data.result.inviteId)
                                 resolve(data.data.result)
                             }
@@ -369,12 +331,12 @@ function help(inviteId) {
                         data = JSON.parse(data);
                         //console.log(data)
                         //if (data.data.bizCode === 0) {
-                        //if (data.data && data['data']['bizCode'] === 0) {
-                        //  console.log(data.bizMsg)
-                        //}
+                            //if (data.data && data['data']['bizCode'] === 0) {
+                              //  console.log(data.bizMsg)
+                            //}
                         //} else {
-                        // console.log(`\n 失败:` + data.bizMsg)
-                        // }
+                           // console.log(`\n 失败:` + data.bizMsg)
+                       // }
                     }
                 }
             } catch (e) {
@@ -429,10 +391,10 @@ function promote_pk_getHomeData() {
                 } else {
                     if (safeGet(data)) {
                         data = JSON.parse(data);
-                    } else {
-                        console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                        } else {
+                            console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                        }
                     }
-                }
             } catch (e) {
                 $.logErr(e, resp)
             } finally {
@@ -452,10 +414,10 @@ function getEncryptedPinColor() {
                 } else {
                     if (safeGet(data)) {
                         data = JSON.parse(data);
-                    } else {
-                        console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                        } else {
+                            console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                        }
                     }
-                }
             } catch (e) {
                 $.logErr(e, resp)
             } finally {
@@ -476,10 +438,10 @@ function collectFriendRecordColor(mpin) {
                 } else {
                     if (safeGet(data)) {
                         data = JSON.parse(data);
-                    } else {
-                        console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                        } else {
+                            console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                        }
                     }
-                }
             } catch (e) {
                 $.logErr(e, resp)
             } finally {
@@ -501,10 +463,10 @@ function promote_pk_joinGroup(groupJoinInviteId) {
                 } else {
                     if (safeGet(data)) {
                         data = JSON.parse(data);
-                    } else {
-                        console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                        } else {
+                            console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
+                        }
                     }
-                }
             } catch (e) {
                 $.logErr(e, resp)
             } finally {
