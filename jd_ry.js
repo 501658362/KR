@@ -1,7 +1,7 @@
 /*
 [task_local]
 #荣耀抽奖机活动
-40 0 * * * jd_618jk.js, tag=荣耀抽奖机活动, enabled=true
+40 0,19 * * * jd_618jk.js, tag=荣耀抽奖机活动, enabled=true
  */
 const $ = new Env('荣耀抽奖机活动');
 const notify = $.isNode() ? require('./sendNotify') : '';
