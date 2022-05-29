@@ -32,7 +32,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
 
 $.inviteId  = ['PKASTT0205KkcE2xZriW0eXmh0INuCTdWmYaRzTcjeQOc',
 'PKASTT020vfhyRR0f_FbKKB73k_cICTdWmYaRzTcjeQOc',
-    'PKASTT016aWvMlZm3Id9t9YJ1CTdWmYaRzTcjeQOc','PKASTT0205KkcE2xZriW0eXmh0INuCTdWmYaRzTcjeQOc','PKASTT016aWvMlZm3Id9t9YJ1CTdWmYaRzTcjeQOc',
+    'PKASTT016aWvMlZm3Id9t9YJ1CTdWmYaRzTcjeQOc','PKASTT0205KkcE2xZriW0eXmh0INuCTdWmYaRzTcjeQOc','PKASTT0225KkcRE9L9QKFJh33kPBcfACTdWmYaRzTcjeQOc',
 ];
 !(async () => {
   if (!cookiesArr[0]) {
