@@ -9,17 +9,17 @@
  ============Quantumultx===============
  [task_local]
  #飞利浦组队
- 50 0,12,22 * * * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_teamFLP.js, tag=飞利浦组队, enabled=true
+ 2 14 * * * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_teamFLP.js, tag=飞利浦组队, enabled=true
 
  ================Loon==============
  [Script]
- cron "50 0,12,22 * * *" script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_teamFLP.js, tag=飞利浦组队
+ cron "2 14 * * *" script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_teamFLP.js, tag=飞利浦组队
 
  ===============Surge=================
- 飞利浦组队 = type=cron,cronexp="50 0,12,22 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_teamFLP.js
+ 飞利浦组队 = type=cron,cronexp="2 14 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_teamFLP.js
 
  ============小火箭=========
- 飞利浦组队 = type=cron,script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_teamFLP.js, cronexpr="50 0,12,22 * * *", timeout=3600, enable=true
+ 飞利浦组队 = type=cron,script-path=https://raw.githubusercontent.com/KingRan/JDJB/main/jd_teamFLP.js, cronexpr="2 14 * * *", timeout=3600, enable=true
 
 */
 const $ = new Env("飞利浦组队");
@@ -73,7 +73,7 @@ if ($.isNode()) {
             }
             
             $.bean = 0;
-            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+            $.authorCode =  'qMpOPDQ6e14geBvMCBpDyKuhWjX4no4HCmbJz2FBEt%2Bc5yVo3wKCr%2F48TYT%2B0%2FJ8'
             $.authorNum = `${random(1000000, 9999999)}`
             $.activityId = '7dee74f982034f5496a469ecdb4b05f2'
             $.activityShopId = '1000002527'
