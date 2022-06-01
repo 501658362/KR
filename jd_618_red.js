@@ -6,7 +6,7 @@ export CODE618=""
 
 建议禁用，避免其他问题 需要的请填写自己的码子，
 
-cron 0 0,10,20 * * * jd_618_red.js
+cron 0 12 * * * jd_618_red.js
 
 */
 const $ = new Env('618红包');
@@ -51,7 +51,7 @@ let appId, fingerprint, token, enCryptMethodJD;
 })().catch((e) => { $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '') }).finally(() => { $.done(); })
 
 async function main(ck, code = 'Jt4KpgH') {
-    const codes = ['Jt4KpgH','lMCi96W']
+    const codes = ['JM4tLAD']
     code = $.CODE618 ? $.CODE618 : codes[random(0, codes.length)]
     //console.log(code)
     let userName = decodeURIComponent(ck.match(/pt_pin=([^; ]+)(?=;?)/) && ck.match(/pt_pin=([^; ]+)(?=;?)/)[1])

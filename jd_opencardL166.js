@@ -12,11 +12,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:10 0 1-18 6 *
+cron:11 11 1-18 6 *
 ============Quantumultx===============
 [task_local]
 #4.13-4.20 京东粉丝联盟福利社 入会赢专享好礼
-10 0 1-18 6 * jd_opencardL166.js, tag=6.1-6.18 京东粉丝联盟福利社 入会赢专享好礼, enabled=true
+11 11 1-18 6 * jd_opencardL166.js, tag=6.1-6.18 京东粉丝联盟福利社 入会赢专享好礼, enabled=true
 
 */
 
@@ -50,14 +50,14 @@ let activityCookie =''
     return;
   }
   $.activityId = "dzefcdd5e64484bfb7a8168364shop"
-  $.shareUuid = "ca5b720ebda64fbd8bcc06d78733e159"
+  $.shareUuid = "aad7fda9eca641fe8474839e9edb9772"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/shop/league/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["ca5b720ebda64fbd8bcc06d78733e159","b9ade888fdd4427dbd38ffb905175d25","c82894c8a318467aa2240c51716769aa"]
+  let shareUuidArr = ["aad7fda9eca641fe8474839e9edb9772","36a8d5cfbcaa4687b14249c6dc220279","327391248d364a37951fe49f22c207ee"]
   let s = Math.floor((Math.random()*3))
   let n = 0
+  for (let i = 0; i < cookiesArr.length; i++) {
   n = Math.floor((Math.random()*shareUuidArr.length))
   $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
-  for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
