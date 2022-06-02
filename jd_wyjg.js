@@ -12,11 +12,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:35 18 1-30 6-8 *
+cron:35 19 1-30 6-8 *
 ============Quantumultx===============
 [task_local]
 #6.1-8.8 无忧酒柜
-35 18 1-30 6-8 * jd_wyjg.js, tag=6.1-8.8 无忧酒柜, enabled=true
+35 19 1-30 6-8 * jd_wyjg.js, tag=6.1-8.8 无忧酒柜, enabled=true
 
 */
 
@@ -53,14 +53,14 @@ let cookies = []
     return;
   }
   $.activityId = "dz42e1a74695424e06a97da4129c64"
-  $.shareUuid = "356ad32871a34a4b8b0800789f185fd8"
+  $.shareUuid = "91a61c48451a46ec8c4f0e23a69d096c"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/jddrink/winecabinet/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["356ad32871a34a4b8b0800789f185fd8","ceec3cdee1714fc29990e45698c8d4a4","6f791ee9e3e446bca5d2d6e3ff2a9f7e"]
+  let shareUuidArr = ["91a61c48451a46ec8c4f0e23a69d096c","e5d2d6af17fe4829bafceb9b63cc5436","eb995067c1d94857868fa916a37179f1"]
   let s = Math.floor((Math.random()*3))
   let n = 0
+  for (let i = 0; i < cookiesArr.length; i++) {
   n = Math.floor((Math.random()*shareUuidArr.length))
   $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
-  for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])

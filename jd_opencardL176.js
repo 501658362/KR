@@ -11,11 +11,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:35 9 3-20 6 *
+cron:35 19 3-20 6 *
 ============Quantumultx===============
 [task_local]
 #6.2-6.20 大牌狂欢嗨享购
-35 9 3-20 6 * jd_opencardL176.js, tag=6.2-6.20 大牌狂欢嗨享购, enabled=true
+35 19 3-20 6 * jd_opencardL176.js, tag=6.2-6.20 大牌狂欢嗨享购, enabled=true
 
 */
 const $ = new Env("6.2~6.20 大牌狂欢嗨享购");
@@ -46,9 +46,9 @@ if ($.isNode()) {
     }
 		console.log("入口:https://lzdz1-isv.isvjcloud.com/dingzhi/may/brandUnion/activity?activityId=dz96fb80e34caa9b51b95b0836967f");
     authorCodeList = [
-				'e682badd53284eb08ea1bb2356dc7b68',
-				'c77f35c3c7bb4b7fa0e95af26e16b91c',
-				'034df84ea6d842f19056d27a628a61d7',
+				'd450428e180c43e986d1202627394def',
+				'38822824d112419e9345563522ecc1f9',
+				'ad1ea5014f5f48fa84ed9b931b30dfaa',
     ]
     for (let i = 0; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
@@ -77,7 +77,7 @@ if ($.isNode()) {
             //   '4bd1f2cb22d14e13b8203467048fd2f4',
             // ];
             // $.authorCode = authorCodeList[random(0, authorCodeList.length)];
-            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+            $.authorCode =  authorCodeList[random(0, authorCodeList.length)]
             $.authorNum = `${random(1000000, 9999999)}`;
             $.randomCode = random(1000000, 9999999);
             $.activityId = "dz96fb80e34caa9b51b95b0836967f";
@@ -199,10 +199,8 @@ function task(function_id, body, isCommon = 0, own = 0) {
                                     if (!data.data.hasEnd) {
                                         $.log(`开启【${data.data.activityName}】活动`);
                                         $.log("-------------------");
-                                        if ($.index === 1) {
                                             ownCode = data.data.actorUuid;
                                             console.log(ownCode);
-                                        }
                                         $.actorUuid = data.data.actorUuid;
                                     } else {
                                         $.log("活动已经结束");
