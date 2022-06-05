@@ -45,7 +45,7 @@ let allMessage = '';
 let jdWindfggToken = '';
 jdWindfggToken = $.isNode() ? (process.env.WindfggToken ? process.env.WindfggToken : `${jdWindfggToken}`) : ($.getdata('WindfggToken') ? $.getdata('WindfggToken') : `${jdWindfggToken}`);
 if (!jdWindfggToken) {
-    console.log('请填写Windfgg获取的Token,变量是WindfggToken');
+    console.log('\n请前往 https://t.me/wind_fgg   获取Token\n请填写Windfgg获取的Token,变量是WindfggToken');
 	return;
 }
 
@@ -302,9 +302,9 @@ function getSignfromPanda(functionId, body) {
 				} else {
 					data = JSON.parse(data);				
 				if (data && data.code == 200) {
-                    //lnrequesttimes = data.request_times;
-                    //console.log("衰仔，连接Windfgg服务成功(*^▽^*)，当前Token使用次数为:" + lnrequesttimes);
-										console.log("衰仔，连接Windfgg服务成功(*^▽^*)");
+                    lnrequesttimes = data.request_times;
+                    console.log("衰仔，连接Windfgg服务成功(*^▽^*)，当前Token使用次数为:" + lnrequesttimes);
+										//console.log("衰仔，连接Windfgg服务成功(*^▽^*)");
                     if (data.data){
                         strsign = data.data || '';
 						}
