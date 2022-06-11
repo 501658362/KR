@@ -7,11 +7,11 @@
 活动网址：
 https://prodev.m.jd.com/mall/active/2tSZSK78Bm63pM4yGwA1rKChafQz/index.html
 
-cron:33 7 * * *
+cron:33 11 * * *
 ============Quantumultx===============
 [task_local]
 #618天天抽奖
-33 7 * * * jd_618lottery.js, tag=618天天抽奖, enabled=true
+33 11 * * * jd_618lottery.js, tag=618天天抽奖, enabled=true
 
 */
 const $ = new Env('618天天抽奖');
