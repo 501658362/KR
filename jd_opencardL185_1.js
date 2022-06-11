@@ -11,11 +11,11 @@
 请求太频繁会被黑ip
 过10分钟再执行
 
-cron:31 18 10-20 6 *
+cron:22 10 10-20 6 *
 ============Quantumultx===============
 [task_local]
 #6.10~6.20 心尖好物 618拔草时刻
-31 18 10-20 6 * jd_opencardL185.js, tag=6.10~6.20 心尖好物 618拔草时刻, enabled=true
+22 10 10-20 6 * jd_opencardL185.js, tag=6.10~6.20 心尖好物 618拔草时刻, enabled=true
 
 */
 
@@ -35,8 +35,6 @@ if ($.isNode()) {
 } else {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
-let opencard_draw = "0"
-opencard_draw = $.isNode() ? (process.env.opencard_draw ? process.env.opencard_draw : opencard_draw) : ($.getdata('opencard_draw') ? $.getdata('opencard_draw') : opencard_draw);
 allMessage = ""
 message = ""
 $.hotFlag = false
@@ -52,16 +50,16 @@ let activityCookie =''
     return;
   }
   $.activityId = "dzlhkke163a6e9a2514a0ca481942d"
-  $.shareUuid = "97c83acf403a477d8fab9f8886ddf28d"
+  $.shareUuid = "ebb92048a8c64d83bdbb6ad08eea935a"
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
-  let shareUuidArr = ["97c83acf403a477d8fab9f8886ddf28d","6b8c62433e70412eb5dbbd234a9451e2","35d6ac8e5c424d22bb9801a10ab24472"]
+  let shareUuidArr = ["ebb92048a8c64d83bdbb6ad08eea935a","fe7e8cac5175428690150c45f86bc91b","78bcd3385a7f48c3b1b6148f06aac8f6"]
   let s = Math.floor((Math.random()*3))
   let n = 0
-  n = Math.floor((Math.random()*shareUuidArr.length))
-  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
 
 
   for (let i = 0; i < cookiesArr.length; i++) {
+  n = Math.floor((Math.random()*shareUuidArr.length))
+  $.shareUuid = shareUuidArr[n] ? shareUuidArr[n] : $.shareUuid
     cookie = cookiesArr[i];
     if (cookie) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -199,24 +197,20 @@ async function run() {
       await takePostRequest('activityContent');
     }
     console.log(`${$.score}值`)
-    if(opencard_draw+"" !== "0"){
       $.runFalag = true
       let count = parseInt($.score/100)
-      opencard_draw = parseInt(opencard_draw, 10)
-      if(count > opencard_draw) count = opencard_draw
       console.log(`抽奖次数为:${count}`)
       for(m=1;count--;m++){
         console.log(`第${m}次抽奖`)
         await takePostRequest('抽奖');
         if($.runFalag == false) break
         if(Number(count) <= 0) break
-        if(m >= 10){
+        if(m >= 2){
           console.log("抽奖太多次，多余的次数请再执行脚本")
           break
         }
         await $.wait(parseInt(Math.random() * 2000 + 2000, 10))
       }
-    }else console.log('如需抽奖请设置环境变量[opencard_draw]为"3" 3为次数');
     
     await $.wait(parseInt(Math.random() * 1000 + 2000, 10))
     //await takePostRequest('getDrawRecordHasCoupon');
@@ -231,7 +225,7 @@ async function run() {
       $.shareUuid = $.actorUuid
       console.log(`后面的号都会助力:${$.shareUuid}`)
     }
-    await $.wait(parseInt(Math.random() * 1000 + 1000, 10))
+    await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
       if($.index % 3 == 0) console.log('休息一下，别被黑ip了\n可持续发展')
       if($.index % 3 == 0) await $.wait(parseInt(Math.random() * 5000 + 20000, 10))
   } catch (e) {
