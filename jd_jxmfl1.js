@@ -180,7 +180,7 @@ const JD_API_HOST = _0x1576('‫12', 'ozSp');
     await _0x520955[_0x1576('‫27', ']S*c')](requestAlgo);
     const _0x4f448d = _0x520955[_0x1576('‫28', 'uUJ(')](Math[_0x1576('‫29', 'eWdB')](), 0.5) ? _0x1576('‫2a', 'hTKK') : _0x520955[_0x1576('‮2b', 'HQXp')];
 
-    launchid =['67544d87be7412e985ef046aa8043fbc','a20b403f2c13232f9d3f82399967c6f3']
+    launchid =['ba2384d6ec37326b13ed02b3d641e747','a20b403f2c13232f9d3f82399967c6f3','67544d87be7412e985ef046aa8043fbc']
     if (_0x520955['oNScX'](launchid[_0x1576('‮30', 'EEac')], 0x0) && !first) {
         if (_0x520955[_0x1576('‮31', 'vK@q')]('WLMTa', _0x520955[_0x1576('‮32', 'Sv%[')])) {
             return;
