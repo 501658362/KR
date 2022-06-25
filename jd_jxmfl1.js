@@ -3,7 +3,7 @@
 
 [task_local]
 #京喜免费领
-2 12 * * * jd_jxmfl.js, tag=京喜免费领, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+2 21 * * * jd_jxmfl1.js, tag=京喜免费领, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
 const $ = new Env('京喜免费领-加密');
 var _0xodX = 'jsjiami.com.v6', _0xodX_ = ['‮_0xodX'],
@@ -180,7 +180,7 @@ const JD_API_HOST = _0x1576('‫12', 'ozSp');
     await _0x520955[_0x1576('‫27', ']S*c')](requestAlgo);
     const _0x4f448d = _0x520955[_0x1576('‫28', 'uUJ(')](Math[_0x1576('‫29', 'eWdB')](), 0.5) ? _0x1576('‫2a', 'hTKK') : _0x520955[_0x1576('‮2b', 'HQXp')];
 
-    launchid =['b9c93d4834d27f30d45007a8ce4b1f36','56f8faf3b0aafa7538cc0840466c916a','a94434b6df5baec5a33e6ffeaf0712f0']
+    launchid =['a94434b6df5baec5a33e6ffeaf0712f0']
     if (_0x520955['oNScX'](launchid[_0x1576('‮30', 'EEac')], 0x0) && !first) {
         if (_0x520955[_0x1576('‮31', 'vK@q')]('WLMTa', _0x520955[_0x1576('‮32', 'Sv%[')])) {
             return;
