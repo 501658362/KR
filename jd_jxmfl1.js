@@ -3,7 +3,7 @@
 
 [task_local]
 #京喜免费领
-10 10 * * * jd_jxmfl.js, tag=京喜免费领, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+10 10 * * * jd_jxmfl1.js, tag=京喜免费领, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
 const $ = new Env('京喜免费领-加密');
 var OＯ0$ = 'jsjiami.com.v6', OＯ0$_ = ['‮OＯ0$'],
