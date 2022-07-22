@@ -76,12 +76,12 @@ if ($.isNode()) {
             $.ADID = getUUID('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 1);
             $.UUID = getUUID('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
             authorCodeList = [
-                '09e0830b93cf4971bd459d7895d0547c',
-								'2beccfacac444fb69c9a0abba04c6407',
-								'96a945f28cac4ed584ac1175dd631778',
+                'bfff9b31d0b849d0a72e623125bc6282',
+								'5317423cf1a24239a319feccf6e01f46',
+								'84a850165715483ba2b5e59ff19644ea',
             ]
             // $.authorCode = authorCodeList[random(0, authorCodeList.length)]
-            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+            $.authorCode =  authorCodeList[random(0, authorCodeList.length)]
             $.authorNum = `${random(1000000, 9999999)}`
             $.randomCode = random(1000000, 9999999)
             $.activityId = 'dze0668f104033b575c2d4dec24d5e'
@@ -194,10 +194,8 @@ function task(function_id, body, isCommon = 0, own = 0) {
                                     if (!data.data.hasEnd) {
                                         $.log(`开启【${data.data.activityName}】活动`)
                                         $.log("-------------------")
-                                        if ($.index === 1) {
                                             ownCode = data.data.actorUuid
                                             console.log(ownCode)
-                                        }
                                         $.actorUuid = data.data.actorUuid;
                                     } else {
                                         $.log("活动已经结束");
