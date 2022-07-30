@@ -61,12 +61,12 @@ if ($.isNode()) {
             $.ADID = getUUID('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 1);
             $.UUID = getUUID('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
             authorCodeList = [
-                '8db0bfac2875446ca93fbfa49ae3b8ed',
-                'd97ee3e82b28409a9b40db7b715938f5',
-                '770cd3db497a4ef5ad595993d27ee2e2',
+                '7c7f390800a247868650ede52ad92ea1',
+                '585f3a4593f84829aaa574774e29989a',
+                '71e7efab3ea04395bd84ae29d46aecf5',
             ]
             // $.authorCode = authorCodeList[random(0, authorCodeList.length)]
-            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+            $.authorCode =  authorCodeList[random(0, authorCodeList.length)]
             $.authorNum = `${random(1000000, 9999999)}`
             $.randomCode = random(1000000, 9999999)
             $.activityId = 'dz2efdaa4b4203a461304000b0f983'
@@ -185,10 +185,8 @@ function task(function_id, body, isCommon = 0, own = 0) {
                                     if (!data.data.hasEnd) {
                                         $.log(`开启【${data.data.activityName}】活动`)
                                         $.log("-------------------")
-                                        if ($.index === 1) {
                                             ownCode = data.data.actorUuid
                                             console.log(ownCode)
-                                        }
                                         $.actorUuid = data.data.actorUuid;
                                         $.skuTask = data.data.addSku;
                                         $.shopTask = data.data.followShop;
