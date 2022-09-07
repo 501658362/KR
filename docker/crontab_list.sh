@@ -156,4 +156,10 @@
 # 赚喜豆-TS版
 15,30,45 0 * * * node /scripts/jd_zjd.ts >> /scripts/logs/jd_zjd.log 2>&1
 # 京喜签到
-20 1,8 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&1
+20 1,8 * * * node /scripts/jx_sign.js >> /scripts/logs/jx_sign.log 2>&
+
+10 11 1 1 * node /scripts/jd_categoryUnion.js >> /scripts/logs/jd_categoryUnion.log 2>&1
+10 11 1 1 * node /scripts/jd_categoryUnion_draw.js >> /scripts/logs/jd_categoryUnion_draw.log 2>&1
+2 1 * * * node /scripts/jd_joyopen.js >> /scripts/logs/jd_joyopen.log 2>&1
+0 0,10 * * * node /scripts/jd_lottery.js >> /scripts/logs/jd_lottery.log 2>&1
+7 7 7 7 * node /scripts/jd_wdz.js >> /scripts/logs/jd_wdz.log 2>&1
