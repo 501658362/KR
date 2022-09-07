@@ -1,7 +1,7 @@
 name: Fork News
 on:
   schedule:
-    - cron: '0 10 * * 1' # Checks for updates every Monday at 10:00 AM
+    - cron: '33 7 * * *' # Checks for updates every Monday at 10:00 AM
 jobs:
   fork-news:
     runs-on: ubuntu-latest
