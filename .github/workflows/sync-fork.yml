@@ -14,6 +14,6 @@ jobs:
       - uses: tgymnich/fork-sync@v1.4
         with:
           token: ${{ secrets.FORK_NEWS_TOKEN }}
-          owner: KingRan
+          owner: 501658362
           base: main
           head: main
