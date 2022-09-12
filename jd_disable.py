@@ -58,7 +58,7 @@ def get_tasklist() -> list:
     response = requests.get(url=url, headers=headers)
     datas = json.loads(response.content.decode("utf-8"))
     if datas.get("code") == 200:
-        tasklist = datas.get("data")
+        tasklist = datas.get("data").get("data")
     return tasklist
 
 
