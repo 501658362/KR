@@ -138,7 +138,7 @@ if ($.isNode() && process.env.CHECKCK_ALLNOTIFY) {
     }
 
     for (let i = 0; i < envs.length; i++) {
-        if (envs[i].value) {			
+        if (envs[i].value) {
 			var tempid=0;
 			if(envs[i]._id){
 				tempid=envs[i]._id;
@@ -146,7 +146,7 @@ if ($.isNode() && process.env.CHECKCK_ALLNOTIFY) {
 			if(envs[i].id){
 				tempid=envs[i].id;
 			}
-            cookie = await getEnvById(tempid);				
+            cookie = await getEnvById(tempid);
             $.UserName = (cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
             $.UserName2 = decodeURIComponent($.UserName);
             $.index = i + 1;
@@ -159,7 +159,8 @@ if ($.isNode() && process.env.CHECKCK_ALLNOTIFY) {
             TempDisableMessage = '';
             TempEnableMessage = '';
             TempOErrorMessage = '';
-
+            $.Remark = getRemark(envs[i].remarks);
+            $.UserName2 = getRemark(envs[i].remarks);
             console.log(`开始检测【京东账号${$.index}】${$.UserName2} ....\n`);
             if (MessageUserGp4) {
                 userIndex4 = MessageUserGp4.findIndex((item) => item === $.UserName);
@@ -472,7 +473,7 @@ if ($.isNode() && process.env.CHECKCK_ALLNOTIFY) {
             console.log(allMessage);
 			if (strAllNotify)
                     allMessage += `\n` + strAllNotify;
-				
+
             await notify.sendNotify(`${$.name}`, `${allMessage}`, {
                 url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
             })
@@ -483,6 +484,23 @@ if ($.isNode() && process.env.CHECKCK_ALLNOTIFY) {
 })()
 .catch((e) => $.logErr(e))
 .finally(() => $.done())
+
+function getRemark(strRemark) {
+    if (strRemark) {
+        var Tempindex = strRemark.indexOf("@@");
+        if (Tempindex != -1) {
+            var TempRemarkList = strRemark.split("@@");
+            return TempRemarkList[0].trim();
+        } else {
+            //这是为了处理ninjia的remark格式
+            strRemark = strRemark.replace("remark=", "");
+            strRemark = strRemark.replace(";", "");
+            return strRemark.trim();
+        }
+    } else {
+        return "";
+    }
+}
 
 function TotalBean() {
     return new Promise(async resolve => {
