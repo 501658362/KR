@@ -25,8 +25,8 @@ let message = '', allMessage = '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '';
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
-let appIdArr = ['1EFRWxKuG'];
-let appNameArr = ['许愿抽好礼'];
+let appIdArr = [];
+let appNameArr = [];
 let appId, appName;
 $.shareCode = [];
 if ($.isNode()) {
@@ -60,6 +60,10 @@ if ($.isNode()) {
         }
         continue
       }
+			if(appIdArr.length <= 0) {
+				console.log(`\n暂无活动~\n`)
+				break
+			}
       for (let j = 0; j < appIdArr.length; j++) {
         appId = appIdArr[j]
         appName = appNameArr[j]
