@@ -61,34 +61,34 @@ let inviteCodes = ['-ryUXKkMNDFCN0GSSNnHo95ETK2dCBm_','4e_-XaQLb2VAYF6ISpeJ5uS0'
   //     await $.wait(1000)
   //   }
   // }
-  for (let i = 0; i < cookiesArr.length; i++) {
-    if (cookiesArr[i]) {
-      cookie = cookiesArr[i];
-      $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
-      $.index = i + 1;
-      $.isLogin = true;
-      $.nickName = '';
-      message = '';
-      // await TotalBean();
-      console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
-      if (!$.isLogin) {
-        $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
-
-        if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
-        }
-        continue
-      }
-      UA = `jdapp;iPhone;10.2.0;13.1.2;${randomString(40)};M/5.0;network/wifi;ADID/;model/iPhone8,1;addressid/2308460611;appBuild/167853;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;`
-      uuid = UA.split(';')[4]
-			if ($.index <=3 ) {
-					await getInfo('',true);
-			}else {
-					break;
-			}
-      await $.wait(500)
-    }
-  }
+  // for (let i = 0; i < cookiesArr.length; i++) {
+  //   if (cookiesArr[i]) {
+  //     cookie = cookiesArr[i];
+  //     $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
+  //     $.index = i + 1;
+  //     $.isLogin = true;
+  //     $.nickName = '';
+  //     message = '';
+  //     // await TotalBean();
+  //     console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
+  //     if (!$.isLogin) {
+  //       $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+  //
+  //       if ($.isNode()) {
+  //         await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
+  //       }
+  //       continue
+  //     }
+  //     UA = `jdapp;iPhone;10.2.0;13.1.2;${randomString(40)};M/5.0;network/wifi;ADID/;model/iPhone8,1;addressid/2308460611;appBuild/167853;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;`
+  //     uuid = UA.split(';')[4]
+	// 		if ($.index <=3 ) {
+	// 				await getInfo('',true);
+	// 		}else {
+	// 				break;
+	// 		}
+  //     await $.wait(500)
+  //   }
+  // }
 
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
