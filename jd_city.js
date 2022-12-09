@@ -2,7 +2,7 @@
 城城领现金
 [task_local]
 #城城领现金
-31 0,16, 9-13 12 * jd_city.js, tag=城城领现金, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+11 0,17, 9-13 12 * jd_city.js, tag=城城领现金, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
  */
 const $ = new Env('城城领现金');
@@ -36,30 +36,30 @@ let inviteCodes = ['-ryUXKkMNDFCN0GSSNnHo95ETK2dCBm_','4e_-XaQLb2VAYF6ISpeJ5uS0'
   } else {
     console.log(`脚本不会自动抽奖，建议活动快结束开启，如需自动抽奖请设置环境变量  JD_CITY_EXCHANGE 为true`);
   }
-  for (let i = 0; i < cookiesArr.length; i++) {
-    if (cookiesArr[i]) {
-      cookie = cookiesArr[i];
-      $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
-      $.index = i + 1;
-      $.isLogin = true;
-      $.nickName = '';
-      message = '';
-      // await TotalBean();
-      console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
-      if (!$.isLogin) {
-        $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
-
-        if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
-        }
-        continue
-      }
-      UA = `jdapp;iPhone;10.2.0;13.1.2;${randomString(40)};M/5.0;network/wifi;ADID/;model/iPhone8,1;addressid/2308460611;appBuild/167853;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;`
-      uuid = UA.split(';')[4]
-      await getInfo('',true);
-      await $.wait(1000)
-    }
-  }
+  // for (let i = 0; i < cookiesArr.length; i++) {
+  //   if (cookiesArr[i]) {
+  //     cookie = cookiesArr[i];
+  //     $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
+  //     $.index = i + 1;
+  //     $.isLogin = true;
+  //     $.nickName = '';
+  //     message = '';
+  //     // await TotalBean();
+  //     console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
+  //     if (!$.isLogin) {
+  //       $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+  //
+  //       if ($.isNode()) {
+  //         await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
+  //       }
+  //       continue
+  //     }
+  //     UA = `jdapp;iPhone;10.2.0;13.1.2;${randomString(40)};M/5.0;network/wifi;ADID/;model/iPhone8,1;addressid/2308460611;appBuild/167853;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;`
+  //     uuid = UA.split(';')[4]
+  //     await getInfo('',true);
+  //     await $.wait(1000)
+  //   }
+  // }
   
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
@@ -69,7 +69,12 @@ let inviteCodes = ['-ryUXKkMNDFCN0GSSNnHo95ETK2dCBm_','4e_-XaQLb2VAYF6ISpeJ5uS0'
     uuid = UA.split(';')[4]
     await shareCodesFormat()
     let shareCodes;
-    shareCodes = [...$.newShareCodes]
+    shareCodes = ['97mkEOlfPzoXKl6ISpeJ5srN',
+    '_LWUDv1TLyEQOkyQA5eJ95b8TkiT',
+        '-ryUCt5MPRUgOnGRDq-hu3XhsGMo4gc',
+        'o-36XK8Kb2ZeaxbHTdvHuz-s0tZKdXg',
+      'd35EjCuisu_5topFBpfFu0IPxJI',
+    '-ryUXf1eZjIRZRXHTtyT__9DbZQFABCo']
     
     for (let j = 0; j < shareCodes.length; j++) {
       console.log(`${$.UserName} 开始助力 【${shareCodes[j]}】`)
