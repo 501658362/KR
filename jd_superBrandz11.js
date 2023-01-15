@@ -1,7 +1,7 @@
 /*
 特物Z
 cron:15 21 14 1 *
-15 21 14 1 * jd_superBrandz.js
+15 21 * * * jd_superBrandz.js
 
  */
 const $ = new Env('特物Z_超级');
