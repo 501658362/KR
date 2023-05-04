@@ -7,7 +7,6 @@
 
 import axios from 'axios';
 import {logs} from './function/jinli_log';
-import {concatCK} from '../gyJack_cc/jdenvck';
 import {getRandomNumberByRange, getshareCodeHW, o2s, randomString, requireConfig, wait} from "./function/TS_USER_AGENTS";
 
 let cookie: string = '', res: any = '', UserName: string, UA: string = ''
@@ -16,8 +15,6 @@ let min: number[] = [0.02, 0.12, 0.3, 0.6, 0.7, 0.8, 1, 2], log: string = '', lo
 
 !(async () => {
   let cookiesArr: string[] = await requireConfig(false);
-
-  cookiesArr=concatCK(cookiesArr)
   for (let [index, value] of cookiesArr.entries()) {
 	if(index < 7){
     try {

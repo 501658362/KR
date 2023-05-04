@@ -1,6 +1,6 @@
 /**
 过期京豆兑换为喜豆
-cron 33 9,22 * * * jd_exchangejxbeans.js
+cron 33 9 * * * jd_exchangejxbeans.js
 TG频道：https://t.me/sheeplost
 */
 const $ = new Env('京豆兑换为喜豆');
@@ -9,7 +9,10 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message = '';
-let exjxbeans = true;
+let exjxbeans = false;
+if (process.env.exjxbeans) {
+    exjxbeans = process.env.exjxbeans;
+}
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {
         cookiesArr.push(jdCookieNode[item])

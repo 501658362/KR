@@ -1,4 +1,7 @@
-
+if (process.env.JD_19E != "true") {
+    console.log('\n默认不运行,安全性自行衡量,设置变量export JD_19E="true"来运行\n')
+    return
+}
 /*
 建议手动先点开一次
 1 8,15 * * * jd_19E_friends.js
@@ -42,13 +45,8 @@ let groups = []
             $.isLogin = true;
             $.nickName = '';
             message = '';
-            await TotalBean();
             console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
             //   await shareCodesFormat()
-            if (!$.isLogin) {
-                $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
-                continue
-            }
             $.newShareCodes = []
 			await get_secretp()
 			if ($.huobao == false) {

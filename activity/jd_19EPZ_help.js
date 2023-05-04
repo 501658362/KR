@@ -1,11 +1,10 @@
-process.env.JD_19E="true"
 if (process.env.JD_19E != "true") {
     console.log('\n默认不运行,安全性自行衡量,设置变量export JD_19E="true"来运行\n')
     return
 }
 
 /*
-11 21 * * * jd_19EPZ_help.js
+11 20 * * * jd_19EPZ_help.js
 
 变量：
 export PZ="助力码"
@@ -30,10 +29,8 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 
-$.inviteId  = ['PKASTT0205KkcE2xZriW0eXmh0INuCTdWmYaRzTcjeQOc',
-'PKASTT020vfhyRR0f_FbKKB73k_cICTdWmYaRzTcjeQOc',
-    'PKASTT016aWvMlZm3Id9t9YJ1CTdWmYaRzTcjeQOc','PKASTT0205KkcE2xZriW0eXmh0INuCTdWmYaRzTcjeQOc','PKASTT0225KkcRE9L9QKFJh33kPBcfACTdWmYaRzTcjeQOc',
-];
+$.inviteId  = [];
+$.inviteId.push(inviteId1);
 !(async () => {
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
